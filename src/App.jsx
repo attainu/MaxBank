@@ -1,11 +1,16 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
+import HomePage from "./pages/HomePage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import NotFound from "./pages/NotFound";
+import Accounts from "./pages/Accounts";
+
+
 import NavBar from "./components/NavBar";
-import HomePage from "./components/HomePage";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import NotFound from "./components/NotFound";
+import CardBalance from "./components/CardBalance";
+import AccountBalance from "./components/AccountBalance";
 
 function App() {
   return (
@@ -16,6 +21,9 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/accounts" component={Accounts} />
+        <Route exact path="/accbal" component={AccountBalance} />
+        <Route exact path="/cardbal" component={CardBalance} />
         <Route component={NotFound} />
       </Switch>
     </div>
