@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(to right, #36d1dc, #5b86e5);
+}
+
+.NavBar {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(46, 46, 46);
+  box-shadow: 0 10px 10px rgba(43, 33, 33, 0.2);
+}
+
+.NavBar button {
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: transparent;
+}
+
+.NavBar button:hover {
+  color: yellow;
+  cursor: pointer;
+}
+
+.HomePage {
+  width: 100%;
+  height: 90vh;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.LoginDiv {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 60px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, #74ebd5, #acb6e5);
+  box-shadow: 0 0 10px rgba(43, 33, 33, 0.2);
+}
+
+.LoginForm h1 {
+  margin-bottom: 40px;
+}
+
+.RegisterInLogin {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: blue;
+}
+
+.RegisterInLogin:hover {
+  cursor: pointer;
+  color: rgb(162, 0, 255);
+}
+
+.LoginInput {
+  margin-bottom: 30px;
+  width: 400px;
+  height: 40px;
+  padding: 25px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.LoginInput:focus {
+  background-color: wheat;
+}
+
+.LoginBtn {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  padding: 12px 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(24, 173, 37);
+}
+
+.LoginBtn:hover {
+  cursor: pointer;
+  background-color: rgb(90, 192, 99);
+}
+
+.RegisterDiv {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.RegisterForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 60px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, #74ebd5, #acb6e5);
+  box-shadow: 0 0 10px rgba(43, 33, 33, 0.2);
+}
+
+.RegisterForm h1 {
+  margin-bottom: 40px;
+}
+
+.LoginInRegister {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: blue;
+}
+
+.LoginInRegister:hover {
+  cursor: pointer;
+  color: rgb(162, 0, 255);
+}
+
+.RegisterInput {
+  margin-bottom: 30px;
+  width: 400px;
+  height: 40px;
+  padding: 25px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.RegisterInput:focus {
+  background-color: wheat;
+}
+
+.RegisterBtn {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  padding: 12px 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(18, 103, 214);
+}
+
+.RegisterBtn:hover {
+  cursor: pointer;
+  background-color: rgb(70, 139, 230);
+}
