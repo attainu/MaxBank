@@ -7,7 +7,6 @@ import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import Accounts from "./pages/Accounts";
 
-
 import NavBar from "./components/NavBar";
 import CardBalance from "./components/CardBalance";
 import AccountBalance from "./components/AccountBalance";

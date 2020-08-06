@@ -16,7 +16,7 @@ const NavBar = ({ user, logOut, history, ...restProps }) => {
         <button style={{ color: "red", fontSize: "2.0rem" }}>MaxBank</button>
       </Link>
 
-      {user !== null ? (
+      {user ? (
         <>
           <Link to="/accounts">
             <button>Accounts</button>
@@ -50,7 +50,7 @@ const NavBar = ({ user, logOut, history, ...restProps }) => {
 
 const mapStateToProps = (storeState) => {
   return {
-    user: storeState.userState.customer,
+    user: storeState.userState.validUser,
   };
 };
 

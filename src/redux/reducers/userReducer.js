@@ -22,8 +22,6 @@ const customerReducer = (state = initialState, action) => {
 
   switch (type) {
     case LOG_IN: {
-      console.log("1", payload);
-
       let id = state.customers.findIndex((customer) => {
         return customer.username === payload.username && customer.password === payload.password;
       });
