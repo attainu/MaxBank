@@ -6,7 +6,7 @@ import { logIn } from "../redux/actions/userActions";
 
 class Login extends Component {
   state = {
-    email: "",
+    userName: "",
     password: "",
   };
 
@@ -17,13 +17,15 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     // Log in
-    const { email, password } = this.state;
+    const { username, password } = this.state;
     const user = {
-      email,
+     username,
       password,
     };
+    console.log(user);
+    console.log(this.props);
     this.props.logIn(user);
-    // this.props.history.push("/");
+     this.props.history.push("/");
     // this.props.history.goBack();
   };
 
@@ -32,7 +34,7 @@ class Login extends Component {
   };
 
   render() {
-    return this.props.user ? (
+    return this.props.validUser ? (
       <Redirect to="/" />
     ) : (
       <div className="LoginDiv">
@@ -44,9 +46,9 @@ class Login extends Component {
           <input
             onChange={this.handleChange}
             value={this.state.title}
-            type="email"
-            name="email"
-            placeholder="Enter email"
+            type="text"
+            name="username"
+            placeholder="UserName"
             className="LoginInput"
             required
           />
@@ -55,7 +57,7 @@ class Login extends Component {
             value={this.state.password}
             type="password"
             name="password"
-            placeholder="Enter Password"
+            placeholder="Password"
             className="LoginInput"
             required
           />
@@ -67,7 +69,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = (storeState) => {
-  return { user: storeState.userState.customer };
+  return { validUser: storeState.userState.validUser };
 };
 
 export default connect(mapStateToProps, { logIn })(Login);

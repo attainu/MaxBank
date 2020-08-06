@@ -25,12 +25,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: rgb(46, 46, 46);
+  background-color: navy;
   box-shadow: 0 10px 10px rgba(43, 33, 33, 0.2);
 }
 
 .NavBar button {
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   outline: none;
   border: none;
   color: white;

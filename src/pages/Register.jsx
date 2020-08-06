@@ -6,7 +6,7 @@ import { register } from "../redux/actions/userActions";
 
 class Register extends Component {
   state = {
-    name: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -19,13 +19,13 @@ class Register extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     // Register
-    const { name, email, password, confirmPassword } = this.state;
+    const { username, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
       alert("Password not matched with Confirm Password");
     } else {
       const user = {
-        name,
+        username,
         email,
         password,
       };
@@ -39,7 +39,7 @@ class Register extends Component {
   };
 
   render() {
-    return this.props.user ? (
+    return this.props.registered ? (
       <Redirect to="/" />
     ) : (
       <div className="RegisterDiv">
@@ -50,10 +50,10 @@ class Register extends Component {
           </p>
           <input
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.username}
             type="text"
-            name="name"
-            placeholder="Enter Name"
+            name="username"
+            placeholder="UserName"
             className="RegisterInput"
             required
           />
@@ -62,7 +62,7 @@ class Register extends Component {
             value={this.state.email}
             type="email"
             name="email"
-            placeholder="Enter email"
+            placeholder="Email"
             className="RegisterInput"
             required
           />
@@ -71,7 +71,7 @@ class Register extends Component {
             value={this.state.password}
             type="password"
             name="password"
-            placeholder="Enter Password"
+            placeholder="Password"
             className="RegisterInput"
             required
           />
@@ -92,7 +92,7 @@ class Register extends Component {
 }
 
 const mapStateToProps = (storeState) => {
-  return { user: storeState.userState.customer };
+  return { registered: storeState.userState.registered};
 };
 
 export default connect(mapStateToProps, { register })(Register);

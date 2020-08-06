@@ -13,7 +13,7 @@ const NavBar = ({ user, logOut, history, ...restProps }) => {
   return (
     <div className="NavBar">
       <Link to="/">
-        <button style={{ color: "red", fontSize: "2.5rem" }}>MaxBank</button>
+        <button style={{ color: "red", fontSize: "2.0rem" }}>MaxBank</button>
       </Link>
 
       {user !== null ? (
