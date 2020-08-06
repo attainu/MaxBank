@@ -13,11 +13,11 @@ const initialState = {
       password: "pass456",
     },
   ],
-  validUser: false,
+  validUserName: "",
   registered: false,
 };
 
-const customerReducer = (state = initialState, action) => {
+const authCustomerReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -27,14 +27,14 @@ const customerReducer = (state = initialState, action) => {
       });
 
       if (id !== -1) {
-        return { ...state, validUser: true };
+        return { ...state, validUserName: payload.username };
       } else {
-        return { ...state, validUser: false };
+        return state;
       }
     }
 
     case LOG_OUT:
-      return { ...state, validUser: false };
+      return { ...state, validUserName: "" };
 
     case REGISTER:
       return { ...state, customers: [...state.customers, payload], registered: true };
@@ -44,4 +44,4 @@ const customerReducer = (state = initialState, action) => {
   }
 };
 
-export default customerReducer;
+export default authCustomerReducer;

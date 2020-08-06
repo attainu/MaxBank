@@ -50,7 +50,7 @@ const NavBar = ({ user, logOut, history, ...restProps }) => {
 
 const mapStateToProps = (storeState) => {
   return {
-    user: storeState.userState.validUser,
+    user: storeState.userState.validUserName,
   };
 };
 

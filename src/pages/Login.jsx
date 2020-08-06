@@ -19,13 +19,13 @@ class Login extends Component {
     // Log in
     const { username, password } = this.state;
     const user = {
-     username,
+      username,
       password,
     };
     console.log(user);
     console.log(this.props);
     this.props.logIn(user);
-     this.props.history.push("/");
+    this.props.history.push("/");
     // this.props.history.goBack();
   };
 
@@ -34,7 +34,7 @@ class Login extends Component {
   };
 
   render() {
-    return this.props.validUser ? (
+    return this.props.validUserName !== "" ? (
       <Redirect to="/" />
     ) : (
       <div className="LoginDiv">
@@ -69,7 +69,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = (storeState) => {
-  return { validUser: storeState.userState.validUser };
+  return { validUserName: storeState.userState.validUserName };
 };
 
 export default connect(mapStateToProps, { logIn })(Login);

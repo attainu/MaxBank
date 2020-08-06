@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 class HomePage extends React.Component {
   render() {
-    if (!this.props.validUser) {
+    if (this.props.validUserName === "") {
       return (
         <div className="HomePage">
           <div>
@@ -27,7 +27,7 @@ class HomePage extends React.Component {
 
 const mapStateToProps = (storeState) => {
   return {
-    validUser: storeState.userState.validUser,
+    validUserName: storeState.userState.validUserName,
   };
 };
 
