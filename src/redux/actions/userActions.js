@@ -1,21 +1,8 @@
-import { LOG_IN, LOG_OUT, REGISTER } from "../actionTypes";
+import { SETUSER } from "../actionTypes";
 
-export const logIn = (user) => {
+export const setUser = (user) => {
   return {
-    type: LOG_IN,
+    type: SETUSER,
     payload: user,
-  };
-};
-
-export const register = (user) => {
-  return {
-    type: REGISTER,
-    payload: user,
-  };
-};
-
-export const logOut = () => {
-  return {
-    type: LOG_OUT,
   };
 };

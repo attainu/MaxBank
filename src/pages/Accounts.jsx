@@ -2,18 +2,12 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { getCustomer } from "../redux/actions/authCustomerActions";
-
 class Accounts extends React.Component {
-  componentDidMount() {
-    this.props.getCustomer(this.props.validUserName);
-  }
-
   render() {
-    if (this.props.authCustomer) {
+    if (this.props.user) {
       return (
         <div>
-          <h1> Welcome {this.props.authCustomer.name} </h1>
+          <h1> Welcome </h1>
           <div>
             <Link to="/accbal">
               <button>Account Balance</button>
@@ -27,22 +21,15 @@ class Accounts extends React.Component {
         </div>
       );
     } else {
-      return <Redirect to="/login" />;
+      return <Redirect to="/" />;
     }
   }
 }
 
 const mapStateToProps = (storeState) => {
   return {
-    validUserName: storeState.userState.validUserName,
-    authCustomer: storeState.authCustomerState.authCustomer,
+    user: storeState.userState.user,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getCustomer: (username) => dispatch(getCustomer(username)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Accounts);
+export default connect(mapStateToProps)(Accounts);

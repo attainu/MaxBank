@@ -2,12 +2,22 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { logOut } from "../redux/actions/userActions";
+import myFirebase from "../firebase";
 
-const NavBar = ({ user, logOut, history, ...restProps }) => {
+const NavBar = (props) => {
   const handleLogout = () => {
-    logOut();
-    history.push("/");
+    myFirebase
+      .auth()
+      .signOut()
+      .then(
+        () => {
+          alert("Logout Successful");
+          props.history.push("/");
+        },
+        function (error) {
+          alert(error);
+        }
+      );
   };
 
   return (
@@ -16,7 +26,7 @@ const NavBar = ({ user, logOut, history, ...restProps }) => {
         <button style={{ color: "red", fontSize: "2.0rem" }}>MaxBank</button>
       </Link>
 
-      {user ? (
+      {props.user ? (
         <>
           <Link to="/accounts">
             <button>Accounts</button>
@@ -50,8 +60,8 @@ const NavBar = ({ user, logOut, history, ...restProps }) => {
 
 const mapStateToProps = (storeState) => {
   return {
-    user: storeState.userState.validUserName,
+    user: storeState.userState.user,
   };
 };
 
-export default withRouter(connect(mapStateToProps, { logOut })(NavBar));
+export default withRouter(connect(mapStateToProps)(NavBar));
