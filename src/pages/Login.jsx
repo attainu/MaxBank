@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-import myFirebase from "../firebase";
+import { auth } from "../firebase";
 
 class Login extends Component {
   state = {
@@ -19,11 +19,10 @@ class Login extends Component {
 
     const { email, password } = this.state;
 
-    myFirebase
-      .auth()
+    auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        this.props.history.push("/accounts");
+        this.props.history.push("/my-accounts");
       })
       .catch((error) => {
         alert(error.message);
@@ -36,7 +35,7 @@ class Login extends Component {
 
   render() {
     return this.props.user ? (
-      <Redirect to="/accounts" />
+      <Redirect to="/my-accounts" />
     ) : (
       <div className="LoginDiv">
         <form className="LoginForm" onSubmit={this.handleSubmit}>

@@ -20,7 +20,7 @@ class HomePage extends React.Component {
         </div>
       );
     } else {
-      return <Redirect to="/accounts" />;
+      return <Redirect to="/my-accounts" />;
     }
   }
 }

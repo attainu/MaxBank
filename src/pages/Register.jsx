@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-import myFirebase from "../firebase";
+import { auth, db } from "../firebase";
 
 class Register extends Component {
   state = {
@@ -21,30 +21,44 @@ class Register extends Component {
 
     const { username, email, password, confirmPassword } = this.state;
 
-    if (password !== confirmPassword) {
-      alert("Password not matched with Confirm Password");
+    if (password.length < 6) {
+      alert("Passworld must be atleast 6 digits long!");
     } else {
-      myFirebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then((res) => {
-          myFirebase
-            .firestore()
-            .collection("users")
-            .doc(myFirebase.auth().currentUser.uid)
-            .set({
-              name: username,
-              email: email,
-            })
-            .catch((error) => {
-              alert("Something went wrong with added user to firestore: ", error);
-            });
+      if (password !== confirmPassword) {
+        alert("Password not matched with Confirm Password");
+      } else {
+        auth
+          .createUserWithEmailAndPassword(email, password)
+          .then((res) => {
+            db.collection("users")
+              .doc(auth.currentUser.uid)
+              .set({
+                name: username,
+                email: email,
+                account: {
+                  savingAccount: {
+                    accountNumber: (Math.random() * 10000000000).toFixed(0),
+                    balance: 50000,
+                  },
+                  currentAccount: {
+                    accountNumber: (Math.random() * 10000000000).toFixed(0),
+                    balance: 50000,
+                  },
+                  card: {
+                    cardNumber: "4000 0035 6000 0008",
+                  },
+                },
+              })
+              .catch((error) => {
+                alert("Something went wrong with added user to firestore: ", error);
+              });
 
-          this.props.history.push("/accounts");
-        })
-        .catch((error) => {
-          alert(error.message);
-        });
+            this.props.history.push("/my-accounts");
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
+      }
     }
   };
 
@@ -54,7 +68,7 @@ class Register extends Component {
 
   render() {
     return this.props.user ? (
-      <Redirect to="/accounts" />
+      <Redirect to="/my-accounts" />
     ) : (
       <div className="RegisterDiv">
         <form className="RegisterForm" onSubmit={this.handleSubmit}>
