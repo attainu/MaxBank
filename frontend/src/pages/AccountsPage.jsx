@@ -7,6 +7,7 @@ import { auth } from "../firebase";
 
 import Cards from "../components/Cards";
 import Accounts from "../components/Accounts";
+import Transactions from "../components/Transactions";
 
 class AccountsPage extends React.Component {
   updateData = () => {
@@ -41,22 +42,24 @@ class AccountsPage extends React.Component {
               <div className="AccountsPageContainer">
                 <Router>
                   <div className="AccountsSidebar">
-                    <div>
-                      <NavLink to="/my-accounts/">
-                        <button>Accounts Details</button>
+                    <div className="list-group list-group-flush">
+                      <NavLink to="/my-accounts" className="list-group-item list-group-item-action">
+                        Accounts Details
                       </NavLink>
-                    </div>
-                    <div>
-                      <NavLink to="/my-accounts/cards">
-                        <button>Cards</button>
+                      <NavLink to="/my-accounts/cards" className="list-group-item list-group-item-action">
+                        Cards
+                      </NavLink>
+                      <NavLink to="/my-accounts/transactions" className="list-group-item list-group-item-action">
+                        Transactions
                       </NavLink>
                     </div>
                   </div>
 
                   <div className="AccountsContents">
                     <Switch>
-                      <Route exact path="/my-accounts/" component={Accounts} />
+                      <Route exact path="/my-accounts" component={Accounts} />
                       <Route exact path="/my-accounts/cards" component={Cards} />
+                      <Route exact path="/my-accounts/transactions" component={Transactions} />
                     </Switch>
                   </div>
                 </Router>

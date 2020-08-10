@@ -27,7 +27,7 @@ const NavBar = (props) => {
           <NavLink to="/my-accounts">
             <button>My Accounts</button>
           </NavLink>
-          <NavLink to="/products">
+          <NavLink to="/productspage">
             <button>Products</button>
           </NavLink>
           <NavLink to="/payments">

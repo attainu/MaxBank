@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import AccountsPage from "./pages/AccountsPage";
+import ProductsPage from "./pages/ProductsPage";
 import BranchInfo from "./pages/BranchInfo";
 import Products from "./pages/Products";
 
@@ -26,6 +27,7 @@ class App extends React.Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route path="/my-accounts" component={AccountsPage} />
+          <Route exact path="/productspage" component={ProductsPage} />
           <Route path="/branch-info" component={BranchInfo} />
           <Route path="/products" component={Products} />
 

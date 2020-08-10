@@ -245,6 +245,19 @@ body {
   height: 100%;
 }
 
+.ProductsPage {
+  width: 100%;
+  height: 90vh;
+  overflow: auto;
+  padding: 50px;
+  display: flex;
+}
+
+.ProductsPageItem {
+  margin: 20px;
+  padding: 20px;
+}
+
 /** **/
 
 .HomePage img {
