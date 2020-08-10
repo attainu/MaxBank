@@ -47,35 +47,40 @@ body {
   height: 90vh;
   overflow: auto;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .LoginDiv {
-  width: 100%;
-  height: 90vh;
+  width: 40%;
+  height: 40vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin: 40px;
+  margin-right: 20px;
+  position: absolute;
+  top: 8vh;
+  left: 45vw;
 }
 
 .LoginForm {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 60px;
-  border-radius: 10px;
-  background: linear-gradient(to bottom right, #74ebd5, #acb6e5);
+  padding: 20px 30px;
+
+  background: skyblue;
   box-shadow: 0 0 10px rgba(43, 33, 33, 0.2);
 }
 
 .LoginForm h1 {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: navy;
 }
 
 .RegisterInLogin {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   margin-bottom: 40px;
   color: blue;
 }
@@ -87,13 +92,13 @@ body {
 
 .LoginInput {
   margin-bottom: 30px;
-  width: 400px;
-  height: 40px;
-  padding: 25px;
-  border-radius: 10px;
+  width: 200px;
+  height: 30px;
+  padding: 10px;
   outline: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
+  box-shadow: 0 0 10px rgba(43, 33, 33, 0.2);
 }
 
 .LoginInput:focus {
@@ -101,16 +106,16 @@ body {
 }
 
 .LoginBtn {
-  width: 100%;
+  width: 60%;
   margin-top: 10px;
   border-radius: 10px;
   outline: none;
   border: none;
-  padding: 12px 0;
-  font-size: 1.3rem;
+  padding: 5px 0;
+  font-size: 1rem;
   font-weight: bold;
   color: white;
-  background-color: rgb(24, 173, 37);
+  background-color: navy;
 }
 
 .LoginBtn:hover {
@@ -119,30 +124,40 @@ body {
 }
 
 .RegisterDiv {
-  width: 100%;
-  height: 90vh;
+  width: 30%;
+  height: 40vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin: 40px;
+  margin-right: 20px;
+  position: absolute;
+  top: 0;
+  left: 60vw;
 }
 
 .RegisterForm {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: navy;
+  padding: 20px 30px;
+  background: skyblue;
+  box-shadow: 0 0 10px rgba(43, 33, 33, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 60px;
-  border-radius: 10px;
-  background: linear-gradient(to bottom right, #74ebd5, #acb6e5);
-  box-shadow: 0 0 10px rgba(43, 33, 33, 0.2);
+  justify-content: center;
 }
 
 .RegisterForm h1 {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: navy;
 }
 
 .LoginInRegister {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
   color: blue;
 }
 
@@ -153,13 +168,13 @@ body {
 
 .RegisterInput {
   margin-bottom: 30px;
-  width: 400px;
-  height: 40px;
-  padding: 25px;
-  border-radius: 10px;
+  width: 180px;
+  height: 30px;
+  padding: 10px;
   outline: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
+  box-shadow: 0 0 10px rgba(43, 33, 33, 0.2);
 }
 
 .RegisterInput:focus {
@@ -167,16 +182,16 @@ body {
 }
 
 .RegisterBtn {
-  width: 100%;
-  margin-top: 10px;
+  width: 60%;
+
   border-radius: 10px;
   outline: none;
   border: none;
-  padding: 12px 0;
-  font-size: 1.3rem;
+  padding: 5px 0;
+  font-size: 1rem;
   font-weight: bold;
   color: white;
-  background-color: rgb(18, 103, 214);
+  background-color: navy;
 }
 
 .RegisterBtn:hover {
@@ -228,4 +243,112 @@ body {
 .CardsContainer {
   width: 100%;
   height: 100%;
+}
+
+/** **/
+
+.HomePage img {
+  width: 100%;
+  height: 60vh;
+}
+
+.Login1 {
+  height: 40px;
+  width: 273px;
+  background-color: transparent;
+  color: grey;
+
+  margin-left: 65vw;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.Login2 {
+  height: 40px;
+  width: 70px;
+  margin-left: 20px;
+  background-color: red;
+  color: white;
+}
+
+.InvestFD {
+  position: relative;
+}
+
+.InvestFD1 {
+  position: absolute;
+  top: 60px;
+  left: 530px;
+  font-size: 1.5rem;
+  color: navy;
+}
+
+.InvestFD2 {
+  position: absolute;
+  top: 140px;
+  left: 530px;
+  color: navy;
+}
+
+.InvestFD3 {
+  position: absolute;
+  top: 180px;
+  left: 530px;
+  color: navy;
+}
+
+.Phishing {
+  background-color: navy;
+  color: white;
+}
+
+.Phishing p {
+  margin: 20px;
+}
+
+.InvestHealth {
+  position: relative;
+}
+
+.InvestHealth1 {
+  position: absolute;
+  top: 40px;
+  left: 50px;
+  font-size: 2rem;
+  color: navy;
+}
+
+.InvestHealth2 {
+  position: absolute;
+  top: 140px;
+  left: 50px;
+  color: navy;
+}
+
+.InvestHealth3 {
+  position: absolute;
+  top: 180px;
+  left: 50px;
+  color: navy;
+}
+
+.LoginImg {
+  width: 130%;
+  height: 100vh;
+}
+
+.LoginOuterDiv {
+  position: relative;
+  left: 0px;
+}
+
+.RegisterImg {
+  width: 100%;
+  height: 100vh;
+}
+
+.RegisterOuterDiv {
+  position: relative;
+  left: 0px;
 }

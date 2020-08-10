@@ -70,50 +70,57 @@ class Register extends Component {
     return this.props.user ? (
       <Redirect to="/my-accounts" />
     ) : (
-      <div className="RegisterDiv">
-        <form className="RegisterForm" onSubmit={this.handleSubmit}>
-          <h1>Sign Up</h1>
-          <p onClick={this.handleLogin} className="LoginInRegister">
-            Already a User? Click here to Login
-          </p>
-          <input
-            onChange={this.handleChange}
-            value={this.state.username}
-            type="text"
-            name="username"
-            placeholder="Full Name"
-            className="RegisterInput"
-            required
-          />
-          <input
-            onChange={this.handleChange}
-            value={this.state.email}
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="RegisterInput"
-            required
-          />
-          <input
-            onChange={this.handleChange}
-            value={this.state.password}
-            type="password"
-            name="password"
-            placeholder="Password"
-            className="RegisterInput"
-            required
-          />
-          <input
-            onChange={this.handleChange}
-            value={this.state.confirmPassword}
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            className="RegisterInput"
-            required
-          />
-          <input type="submit" className="RegisterBtn" value="Sign Up" />
-        </form>
+      <div className="RegisterOuterDiv">
+        <img
+          className="RegisterImg"
+          src="https://previews.123rf.com/images/rawpixel/rawpixel1703/rawpixel170317195/73791587-internet-banking-transaction-financial-icon.jpg"
+          alt="internet banking"
+        />
+        <div className="RegisterDiv">
+          <form className="RegisterForm" onSubmit={this.handleSubmit}>
+            <h1>Sign Up</h1>
+            <p onClick={this.handleLogin} className="LoginInRegister">
+              Already a User? Click here to Login
+            </p>
+            <input
+              onChange={this.handleChange}
+              value={this.state.username}
+              type="text"
+              name="username"
+              placeholder="name"
+              className="RegisterInput"
+              required
+            />
+            <input
+              onChange={this.handleChange}
+              value={this.state.email}
+              type="email"
+              name="email"
+              placeholder="email"
+              className="RegisterInput"
+              required
+            />
+            <input
+              onChange={this.handleChange}
+              value={this.state.password}
+              type="password"
+              name="password"
+              placeholder="password"
+              className="RegisterInput"
+              required
+            />
+            <input
+              onChange={this.handleChange}
+              value={this.state.confirmPassword}
+              type="password"
+              name="confirmPassword"
+              placeholder="confirm password"
+              className="RegisterInput"
+              required
+            />
+            <input type="submit" className="RegisterBtn" value="Sign Up" />
+          </form>
+        </div>
       </div>
     );
   }
