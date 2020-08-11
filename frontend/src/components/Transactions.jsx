@@ -5,7 +5,7 @@ class Transactions extends React.Component {
   render() {
     const { transactions } = this.props.customerData;
 
-    if (transactions.length > 0) {
+    if (transactions) {
       return (
         <table className="table table-striped">
           <thead>

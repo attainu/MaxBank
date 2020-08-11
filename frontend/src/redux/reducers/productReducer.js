@@ -1,23 +1,23 @@
-import { GET_PRODUCTS } from "../actionTypes"
-
+import { ADD_PRODUCT, GET_PRODUCTS } from "../actionTypes";
 
 const initialState = {
-    products: []
-  };
+  products: [],
+};
 
 const productReducer = (state = initialState, action) => {
-    const { type, payload } = action;
-    switch (type) {
-      case GET_PRODUCTS:
-          { console.log("entering productReducer",payload)
-           console.log ({...state, products: payload})
-           return { ...state, products: payload };
-          }
-    default:
-        return state;
+  const { type, payload } = action;
+  switch (type) {
+    case ADD_PRODUCT: {
+      console.log("entering productReducer  ADD_PRODUCT", payload);
+      return { ...state, products: [...state.products, payload] };
     }
-}
-    
+    case GET_PRODUCTS: {
+      console.log("entering productReducer GET_PRODUCTS");
+      return { ...state };
+    }
+    default:
+      return state;
+  }
+};
 
-  
 export default productReducer;

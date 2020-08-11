@@ -3,4 +3,5 @@ export const SETUSER = "SETUSER";
 export const GET_CUSTOMER_DATA = "GET_CUSTOMER_DATA";
 export const UPDATE_CUSTOMER_DATA = "UPDATE_CUSTOMER_DATA";
 
+export const ADD_PRODUCT = "ADD_PRODUCT";
 export const GET_PRODUCTS = "GET_PRODUCTS";

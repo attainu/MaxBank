@@ -41,9 +41,6 @@ const NavBar = (props) => {
         </NavLink>
       )}
 
-      <NavLink to="/products">
-        <button>Products</button>
-      </NavLink>
       <NavLink to="/branch-info">
         <button>Branch Info</button>
       </NavLink>
