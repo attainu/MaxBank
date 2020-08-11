@@ -35,19 +35,24 @@ class Register extends Component {
               .set({
                 name: username,
                 email: email,
-                account: {
+                accounts: {
                   savingAccount: {
-                    accountNumber: (Math.random() * 10000000000).toFixed(0),
+                    accountNumber: (Math.random() * 1000000000000)
+                      .toFixed(0)
+                      .replace(/[^\dA-Z]/g, "")
+                      .replace(/(.{4})/g, "$1 ")
+                      .trim(),
                     balance: 50000,
+                    pan: null,
+                    aadhaar: null,
+                    openingDate: new Date().toString().slice(4, -31),
                   },
-                  currentAccount: {
-                    accountNumber: (Math.random() * 10000000000).toFixed(0),
-                    balance: 50000,
-                  },
-                  card: {
-                    cardNumber: "4000 0035 6000 0008",
-                  },
+                  otherAccounts: [],
                 },
+                card: {
+                  cardNumber: "4242 4242 4242 4242",
+                },
+                transactions: [],
               })
               .catch((error) => {
                 alert("Something went wrong with added user to firestore: ", error);

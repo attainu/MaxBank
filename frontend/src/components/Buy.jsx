@@ -1,5 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
+
+import { auth } from "../firebase";
+import { getCustomerData, updateCustomerData } from "../redux/actions/customerActions";
 
 class Buy extends React.Component {
   constructor(props) {
@@ -29,8 +33,31 @@ class Buy extends React.Component {
         return data;
       })
       .then((data) => {
-        console.log(data);
         this.setState({ receipt: data.receipt_url });
+
+        const transaction = {
+          id: data.balance_transaction,
+          amount: data.amount / 100,
+          // billing_details: data.billing_details,
+          time: new Date().toString().slice(4, -31),
+          description: data.description,
+          receipt: data.receipt_url,
+        };
+
+        const updatedData = {
+          accounts: {
+            savingAccount: {
+              balance: this.props.customerData.accounts.savingAccount.balance - transaction.amount,
+            },
+          },
+          transactions: [...this.props.customerData.transactions, transaction],
+        };
+
+        this.props.updateCustomerData(auth.currentUser.uid, updatedData);
+        const getUpdatedData = () => {
+          this.props.getCustomerData(auth.currentUser.uid);
+        };
+        setTimeout(getUpdatedData, 1000);
       })
       .catch((error) => {
         alert("Unexpected error occurred!\nDeducted amount will be refunded!");
@@ -65,4 +92,10 @@ class Buy extends React.Component {
   }
 }
 
-export default Buy;
+const mapStateToProps = (storeState) => {
+  return {
+    customerData: storeState.customerState.customerData,
+  };
+};
+
+export default connect(mapStateToProps, { getCustomerData, updateCustomerData })(Buy);

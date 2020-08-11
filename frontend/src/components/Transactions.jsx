@@ -1,65 +1,44 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { auth } from "../firebase";
-import { getCustomerData, updateCustomerData } from "../redux/actions/customerActions";
-
-class Cards extends React.Component {
-  deleteCard = () => {
-    if (auth.currentUser) {
-      const data = {
-        account: {
-          card: null,
-        },
-      };
-
-      const getUpdatedData = () => {
-        this.props.getCustomerData(auth.currentUser.uid);
-      };
-
-      this.props.updateCustomerData(auth.currentUser.uid, data);
-      setTimeout(getUpdatedData, 1000);
-    }
-  };
-
-  requestNewCard = () => {
-    if (auth.currentUser) {
-      const data = {
-        account: {
-          card: {
-            cardNumber: `4000 0035 6000 ${(Math.random() * 10000).toFixed(0)}`,
-          },
-        },
-      };
-
-      const getUpdatedData = () => {
-        this.props.getCustomerData(auth.currentUser.uid);
-      };
-
-      this.props.updateCustomerData(auth.currentUser.uid, data);
-      setTimeout(getUpdatedData, 1000);
-    }
-  };
-
+class Transactions extends React.Component {
   render() {
-    const { card } = this.props.customerData.account;
+    const { transactions } = this.props.customerData;
 
-    return (
-      <div className="CardsContainer">
-        {card ? (
-          <>
-            <h2>Card linked to your accounts</h2>
-            <p>Card Number: {card.cardNumber}</p>
-            <button onClick={this.deleteCard}>Block/Delete Card</button>
-          </>
-        ) : (
-          <>
-            <h2>No Card linked to your accounts!</h2>
-            <button onClick={this.requestNewCard}>Request for New Card</button>
-          </>
-        )}
-      </div>
-    );
+    if (transactions.length > 0) {
+      return (
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Time</th>
+              <th scope="col">Description</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Receipt</th>
+            </tr>
+          </thead>
+          <tbody>
+            {transactions.map((item, index) => {
+              return (
+                <tr key={item.id}>
+                  <th scope="row">{index + 1}</th>
+                  <td>{item.time}</td>
+                  <td>{item.description}</td>
+                  <td>₹{item.amount}</td>
+                  <td>
+                    <a href={item.receipt} target="_blank" rel="noopener noreferrer">
+                      Receipt
+                    </a>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      );
+    } else {
+      return <h4 className="text-danger">No transactions yet!</h4>;
+    }
   }
 }
 
@@ -69,4 +48,4 @@ const mapStateToProps = (storeState) => {
   };
 };
 
-export default connect(mapStateToProps, { getCustomerData, updateCustomerData })(Cards);
+export default connect(mapStateToProps)(Transactions);

@@ -7,57 +7,62 @@ import { getCustomerData, updateCustomerData } from "../redux/actions/customerAc
 class Cards extends React.Component {
   deleteCard = () => {
     if (auth.currentUser) {
-      const data = {
-        account: {
-          card: null,
-        },
-      };
-
+      this.props.updateCustomerData(auth.currentUser.uid, {
+        card: null,
+      });
       const getUpdatedData = () => {
         this.props.getCustomerData(auth.currentUser.uid);
       };
-
-      this.props.updateCustomerData(auth.currentUser.uid, data);
       setTimeout(getUpdatedData, 1000);
     }
   };
 
   requestNewCard = () => {
     if (auth.currentUser) {
-      const data = {
-        account: {
-          card: {
-            cardNumber: `4000 0035 6000 ${(Math.random() * 10000).toFixed(0)}`,
-          },
+      this.props.updateCustomerData(auth.currentUser.uid, {
+        card: {
+          cardNumber: "4242 4242 4242 4242",
         },
-      };
-
+      });
       const getUpdatedData = () => {
         this.props.getCustomerData(auth.currentUser.uid);
       };
-
-      this.props.updateCustomerData(auth.currentUser.uid, data);
       setTimeout(getUpdatedData, 1000);
     }
   };
 
   render() {
-    const { card } = this.props.customerData.account;
+    const card = this.props.customerData.card;
 
     return (
-      <div className="CardsContainer">
-        {card ? (
-          <>
-            <h2>Card linked to your accounts</h2>
-            <p>Card Number: {card.cardNumber}</p>
-            <button onClick={this.deleteCard}>Block/Delete Card</button>
-          </>
-        ) : (
-          <>
-            <h2>No Card linked to your accounts!</h2>
-            <button onClick={this.requestNewCard}>Request for New Card</button>
-          </>
-        )}
+      <div className="row justify-content-center">
+        <div className="col-lg-4 mb-4">
+          <h4>Cards linked to your account:</h4>
+        </div>
+
+        <div className="col-lg-3">
+          {card ? (
+            <div className="conatiner">
+              <div className="container border border-success rounded shadow-sm pt-3">
+                <p className="lead text-center">MaxBank VISA Debit</p>
+                <hr />
+                <p className="lead text-center">{card.cardNumber}</p>
+              </div>
+              <div className="container d-flex justify-content-center mt-4">
+                <button className="btn btn-danger" onClick={this.deleteCard}>
+                  Block/Delete Card
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="conatiner">
+              <h4 className="text-danger">No Card linked to your account!</h4>
+              <button className="btn btn-success mt-4" onClick={this.requestNewCard}>
+                Request for a New Card
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
