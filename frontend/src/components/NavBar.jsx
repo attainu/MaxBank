@@ -24,29 +24,54 @@ const NavBar = (props) => {
 
       {props.user ? (
         <>
-          <NavLink to="/my-accounts">
-            <button>My Accounts</button>
+          <NavLink
+            to="/my-accounts"
+            className="text-decoration-none text-light"
+            activeClassName="border-bottom font-weight-bold font-italic"
+          >
+            My Account
           </NavLink>
-          <NavLink to="/productspage">
-            <button>Products</button>
+          <NavLink
+            to="/cards"
+            className="text-decoration-none text-light"
+            activeClassName="border-bottom font-weight-bold font-italic"
+          >
+            Cards
           </NavLink>
-          <NavLink to="/payments">
-            <button>Payments</button>
+          <NavLink
+            to="/payments"
+            className="text-decoration-none text-light"
+            activeClassName="border-bottom font-weight-bold font-italic"
+          >
+            Payments
           </NavLink>
-          <button onClick={handleLogout}>Logout</button>
         </>
       ) : (
-        <NavLink to="/">
-          <button>Home</button>
+        <NavLink to="/" className="text-decoration-none text-light" activeClassName="border-bottom font-weight-bold font-italic">
+          Home
         </NavLink>
       )}
 
-      <NavLink to="/branch-info">
-        <button>Branch Info</button>
+      <NavLink
+        to="/branch-info"
+        className="text-decoration-none text-light"
+        activeClassName="border-bottom font-weight-bold font-italic"
+      >
+        Branch Info
       </NavLink>
-      <NavLink to="/help">
-        <button>Help</button>
+      <NavLink
+        to="/help"
+        className="text-decoration-none text-light"
+        activeClassName="border-bottom font-weight-bold font-italic"
+      >
+        Help
       </NavLink>
+
+      {props.user ? (
+        <button onClick={handleLogout} className="font-weight-bold text-danger">
+          Logout
+        </button>
+      ) : null}
     </div>
   );
 };

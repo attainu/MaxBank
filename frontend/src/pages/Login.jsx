@@ -8,6 +8,7 @@ class Login extends Component {
   state = {
     email: "",
     password: "",
+    isLoading: false,
   };
 
   handleChange = (e) => {
@@ -18,10 +19,12 @@ class Login extends Component {
     e.preventDefault();
 
     const { email, password } = this.state;
+    this.setState({ isLoading: true });
 
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {
+        this.setState({ isLoading: false });
         this.props.history.push("/my-accounts");
       })
       .catch((error) => {
@@ -68,7 +71,9 @@ class Login extends Component {
               className="LoginInput"
               required
             />
-            <input type="submit" className="LoginBtn" value="Login" />
+            <button type="submit" className="LoginBtn">
+              {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Login"}
+            </button>
           </form>
         </div>
       </div>

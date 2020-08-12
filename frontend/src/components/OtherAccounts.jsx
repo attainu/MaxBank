@@ -5,16 +5,10 @@ class OtherAccounts extends React.Component {
   render() {
     const { otherAccounts } = this.props.customerData.accounts;
 
-    if (otherAccounts) {
-      return (
-        <div className="AccountsDetailsContainer">
-          <div className="SavingAccountContainer">
-            {otherAccounts.length > 0 ? <div>other accounts TODO</div> : <h4 className="text-danger">Nothing here!</h4>}
-          </div>
-        </div>
-      );
+    if (otherAccounts.length > 0) {
+      return <div>TODO</div>;
     } else {
-      return <div> No other accounts </div>;
+      return <h4 className="text-danger text-center">Nothing here!</h4>;
     }
   }
 }

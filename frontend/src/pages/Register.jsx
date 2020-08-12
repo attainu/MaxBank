@@ -10,6 +10,7 @@ class Register extends Component {
     email: "",
     password: "",
     confirmPassword: "",
+    isLoading: false,
   };
 
   handleChange = (e) => {
@@ -20,6 +21,7 @@ class Register extends Component {
     e.preventDefault();
 
     const { username, email, password, confirmPassword } = this.state;
+    this.setState({ isLoading: true });
 
     if (password.length < 6) {
       alert("Passworld must be atleast 6 digits long!");
@@ -44,8 +46,7 @@ class Register extends Component {
                       .trim(),
                     balance: 50000,
                     pan: null,
-                    aadhaar: null,
-                    openingDate: new Date().toString().slice(4, -31),
+                    openingDate: new Date().toString().slice(4, -40),
                   },
                   otherAccounts: [],
                 },
@@ -57,7 +58,7 @@ class Register extends Component {
               .catch((error) => {
                 alert("Something went wrong with added user to firestore: ", error);
               });
-
+            this.setState({ isLoading: true });
             this.props.history.push("/my-accounts");
           })
           .catch((error) => {
@@ -123,7 +124,9 @@ class Register extends Component {
               className="RegisterInput"
               required
             />
-            <input type="submit" className="RegisterBtn" value="Sign Up" />
+            <button type="submit" className="RegisterBtn">
+              {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Sign Up"}
+            </button>
           </form>
         </div>
       </div>

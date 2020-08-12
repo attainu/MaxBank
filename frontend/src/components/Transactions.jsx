@@ -5,10 +5,10 @@ class Transactions extends React.Component {
   render() {
     const { transactions } = this.props.customerData;
 
-    if (transactions) {
+    if (transactions.length > 0) {
       return (
-        <table className="table table-striped">
-          <thead>
+        <table className="table table-bordered">
+          <thead className="thead-light">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Time</th>

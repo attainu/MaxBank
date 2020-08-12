@@ -1,14 +1,10 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { BrowserRouter as Router, NavLink, Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { getCustomerData, updateCustomerData } from "../redux/actions/customerActions";
-import { auth } from "../firebase";
-
-import Cards from "../components/Cards";
-import SavingAccount from "../components/SavingAccount";
-import OtherAccounts from "../components/OtherAccounts";
-import Transactions from "../components/Transactions";
+import MyProfile from "../components/MyProfile";
+import Accounts from "../components/Accounts";
+import Deposits from "../components/Deposits";
 
 class AccountsPage extends React.Component {
   render() {
@@ -20,51 +16,56 @@ class AccountsPage extends React.Component {
           {customerData ? (
             <>
               <h1 className="mb-5">Welcome {customerData.name}</h1>
-              <div className="AccountsPageContainer container">
-                <nav>
-                  <div className="nav nav-tabs nav-pills h5 nav-justified" role="tablist">
-                    <a className="nav-item nav-link active" data-toggle="tab" href="#saving-account" role="tab">
-                      Saving_Account
-                    </a>
-                    <a className="nav-item nav-link" data-toggle="tab" href="#other-accounts" role="tab">
-                      Others_Accounts
-                    </a>
-                    <a className="nav-item nav-link" data-toggle="tab" href="#cards" role="tab">
-                      Cards
-                    </a>
-                    <a className="nav-item nav-link" data-toggle="tab" href="#transactions" role="tab">
-                      Transactions
-                    </a>
-                  </div>
-                </nav>
+              <div className="container">
+                <Router>
+                  <div className="row justify-content-around">
+                    <div className="col-lg-3 mb-5 p-lg-0">
+                      <div className="list-group">
+                        <NavLink
+                          exact
+                          className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
+                          to="/my-accounts"
+                          activeClassName="bg-info text-light text-center"
+                        >
+                          My Profile
+                        </NavLink>
+                        <NavLink
+                          exact
+                          className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
+                          to="/my-accounts/accounts"
+                          activeClassName="bg-info text-light text-center"
+                        >
+                          Accounts
+                        </NavLink>
+                        <NavLink
+                          exact
+                          className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
+                          to="/my-accounts/deposits"
+                          activeClassName="bg-info text-light text-center"
+                        >
+                          Deposits
+                        </NavLink>
+                      </div>
+                    </div>
 
-                <div className="tab-content">
-                  <div className="tab-pane fade pt-4 show active" id="saving-account" role="tabpanel">
-                    <SavingAccount />
+                    <div className="col-lg-8 p-lg-0">
+                      <Switch>
+                        <Route exact path="/my-accounts" component={MyProfile} />
+                        <Route exact path="/my-accounts/accounts" component={Accounts} />
+                        <Route exact path="/my-accounts/deposits" component={Deposits} />
+                      </Switch>
+                    </div>
                   </div>
-                  <div className="tab-pane fade pt-4" id="other-accounts" role="tabpanel">
-                    <OtherAccounts />
-                  </div>
-                  <div className="tab-pane fade pt-4 container" id="cards" role="tabpanel">
-                    <Cards />
-                  </div>
-                  <div className="tab-pane fade pt-4" id="transactions" role="tabpanel">
-                    <Transactions />
-                  </div>
-                </div>
+                </Router>
               </div>
             </>
-          ) : null}
+          ) : (
+            <div className="spinner-border mt-5" role="status" style={{ width: "5rem", height: "5rem" }}></div>
+          )}
         </div>
       );
     } else {
       return <Redirect to="/" />;
-    }
-  }
-
-  componentDidMount() {
-    if (auth.currentUser) {
-      this.props.getCustomerData(auth.currentUser.uid);
     }
   }
 }
@@ -76,4 +77,4 @@ const mapStateToProps = (storeState) => {
   };
 };
 
-export default connect(mapStateToProps, { getCustomerData, updateCustomerData })(AccountsPage);
+export default connect(mapStateToProps)(AccountsPage);

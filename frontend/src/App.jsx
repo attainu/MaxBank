@@ -4,13 +4,15 @@ import { connect } from "react-redux";
 
 import { auth } from "./firebase";
 import { setUser } from "./redux/actions/userActions";
+import { getCustomerData } from "./redux/actions/customerActions";
 
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import AccountsPage from "./pages/AccountsPage";
-import ProductsPage from "./pages/ProductsPage";
+import CardsPage from "./pages/CardsPage";
+import PaymentsPage from "./pages/PaymentsPage";
 import BranchInfo from "./pages/BranchInfo";
 
 import NavBar from "./components/NavBar";
@@ -26,8 +28,9 @@ class App extends React.Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route path="/my-accounts" component={AccountsPage} />
-          <Route exact path="/productspage" component={ProductsPage} />
-          <Route path="/branch-info" component={BranchInfo} />
+          <Route path="/cards" component={CardsPage} />
+          <Route path="/payments" component={PaymentsPage} />
+          <Route exact path="/branch-info" component={BranchInfo} />
 
           <Route component={NotFound} />
         </Switch>
@@ -39,6 +42,7 @@ class App extends React.Component {
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.props.setUser(user);
+        this.props.getCustomerData(auth.currentUser.uid);
       } else {
         this.props.setUser(null);
       }
@@ -50,4 +54,4 @@ const mapStateToProps = (storeState) => {
   return { registered: storeState.userState.registered };
 };
 
-export default connect(mapStateToProps, { setUser })(App);
+export default connect(mapStateToProps, { getCustomerData, setUser })(App);

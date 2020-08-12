@@ -60,7 +60,8 @@ class Buy extends React.Component {
         setTimeout(getUpdatedData, 1000);
       })
       .catch((error) => {
-        alert("Unexpected error occurred!\nDeducted amount will be refunded!");
+        alert(error);
+        // alert("Unexpected error occurred!\nDeducted amount will be refunded!");
       });
   };
 
@@ -78,9 +79,7 @@ class Buy extends React.Component {
           // shippingAddress
           locale="en"
           allowRememberMe={false}
-        >
-          <button>Buy</button>
-        </StripeCheckout>
+        />
       );
     } else {
       return (

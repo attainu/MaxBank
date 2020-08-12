@@ -9,6 +9,7 @@ class UpdateBtn extends React.Component {
     super(props);
     this.state = {
       inputValue: "",
+      isLoading: false,
     };
   }
 
@@ -18,6 +19,7 @@ class UpdateBtn extends React.Component {
 
   updateDetails = () => {
     const getUpdatedData = () => {
+      this.setState({ isLoading: false });
       this.props.getCustomerData(auth.currentUser.uid);
     };
 
@@ -25,6 +27,7 @@ class UpdateBtn extends React.Component {
       if (this.state.inputValue.length !== 10) {
         alert("Please input your correct 10 digit PAN");
       } else {
+        this.setState({ isLoading: true });
         this.props.updateCustomerData(auth.currentUser.uid, {
           accounts: {
             savingAccount: {
@@ -41,35 +44,14 @@ class UpdateBtn extends React.Component {
         setTimeout(getUpdatedData, 1000);
       }
     }
-
-    if (this.props.toUpdate === "Aadhaar") {
-      if (this.state.inputValue.length !== 16) {
-        alert("Please input your correct 16 digit Aadhaar");
-      } else {
-        this.props.updateCustomerData(auth.currentUser.uid, {
-          accounts: {
-            savingAccount: {
-              aadhaar: this.state.inputValue
-                .replace(/[^\dA-Z]/g, "")
-                .replace(/(.{4})/g, "$1 ")
-                .trim(),
-            },
-          },
-        });
-        document.querySelector("#updateAadhaar").classList.remove("show");
-        document.querySelector("#updateAadhaar").classList.add("hide");
-        document.querySelector(".modal-backdrop").remove();
-        setTimeout(getUpdatedData, 1000);
-      }
-    }
   };
 
   render() {
     if (this.props.toUpdate === "PAN") {
       return (
         <div>
-          <button className="btn btn-warning" data-toggle="modal" data-target="#updatePan">
-            Update
+          <button className="btn btn-sm btn-warning" data-toggle="modal" data-target="#updatePan">
+            {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Update"}
           </button>
 
           <div className="modal fade" id="updatePan" tabIndex="-1">
@@ -86,47 +68,6 @@ class UpdateBtn extends React.Component {
                         value={this.state.inputValue}
                         className="form-control"
                         placeholder="10 digit PAN"
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                  </form>
-                </div>
-                <div className="modal-footer">
-                  <button className="btn btn-secondary" data-dismiss="modal">
-                    Close
-                  </button>
-                  <button className="btn btn-primary" onClick={this.updateDetails}>
-                    Save changes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (this.props.toUpdate === "Aadhaar") {
-      return (
-        <div>
-          <button className="btn btn-warning" data-toggle="modal" data-target="#updateAadhaar">
-            Update
-          </button>
-
-          <div className="modal fade" id="updateAadhaar" tabIndex="-1">
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-body">
-                  <form className="form-inline">
-                    <div className="form-group mb-2">
-                      <input type="text" readOnly className="form-control-plaintext" value="Enter Your Aadhaar:" />
-                    </div>
-                    <div className="form-group mx-sm-3 mb-2">
-                      <input
-                        type="text"
-                        value={this.state.inputValue}
-                        className="form-control"
-                        placeholder="16 digit Aadhaar"
                         onChange={this.handleChange}
                       />
                     </div>
