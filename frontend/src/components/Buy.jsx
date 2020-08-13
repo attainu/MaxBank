@@ -45,10 +45,8 @@ class Buy extends React.Component {
         };
 
         const updatedData = {
-          accounts: {
-            savingAccount: {
-              balance: this.props.customerData.accounts.savingAccount.balance - transaction.amount,
-            },
+          card: {
+            balance: this.props.customerData.card.balance - transaction.amount,
           },
           transactions: [...this.props.customerData.transactions, transaction],
         };

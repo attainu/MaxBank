@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import UpdateBtn from "../components/UpdateBtn";
+import UpdatePAN from "../components/UpdatePAN";
 
 class SavingAccount extends React.Component {
   render() {
@@ -27,7 +27,7 @@ class SavingAccount extends React.Component {
                 <td>{savingAccount.pan}</td>
               ) : (
                 <td>
-                  <UpdateBtn toUpdate="PAN" />
+                  <UpdatePAN />
                 </td>
               )}
             </tr>

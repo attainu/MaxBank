@@ -15,7 +15,6 @@ class AccountsPage extends React.Component {
         <div className="AccountsPage container-fluid">
           {customerData ? (
             <>
-              <h1 className="mb-5">Welcome {customerData.name}</h1>
               <div className="container">
                 <Router>
                   <div className="row justify-content-around">

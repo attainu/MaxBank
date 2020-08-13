@@ -37,6 +37,10 @@ class Register extends Component {
               .set({
                 name: username,
                 email: email,
+                customerId: `MB${(Math.random() * 1000000).toFixed(0)}`,
+                contactNumber: null,
+                address: null,
+                nominee: null,
                 accounts: {
                   savingAccount: {
                     accountNumber: (Math.random() * 1000000000000)
@@ -52,6 +56,7 @@ class Register extends Component {
                 },
                 card: {
                   cardNumber: "4242 4242 4242 4242",
+                  balance: 65000,
                 },
                 transactions: [],
               })

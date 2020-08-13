@@ -7,37 +7,43 @@ class Transactions extends React.Component {
 
     if (transactions.length > 0) {
       return (
-        <table className="table table-bordered">
-          <thead className="thead-light">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Time</th>
-              <th scope="col">Description</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Receipt</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transactions.map((item, index) => {
-              return (
-                <tr key={item.id}>
-                  <th scope="row">{index + 1}</th>
-                  <td>{item.time}</td>
-                  <td>{item.description}</td>
-                  <td>₹{item.amount}</td>
-                  <td>
-                    <a href={item.receipt} target="_blank" rel="noopener noreferrer">
-                      Receipt
-                    </a>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <div className="px-3 pt-4 pb-1 bg-light rounded">
+          <table className="table table-bordered">
+            <thead className="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Time</th>
+                <th scope="col">Description</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Receipt</th>
+              </tr>
+            </thead>
+            <tbody>
+              {transactions.map((item, index) => {
+                return (
+                  <tr key={item.id}>
+                    <th scope="row">{index + 1}</th>
+                    <td>{item.time}</td>
+                    <td>{item.description}</td>
+                    <td>₹{item.amount}</td>
+                    <td>
+                      <a href={item.receipt} target="_blank" rel="noopener noreferrer">
+                        Receipt
+                      </a>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       );
     } else {
-      return <h4 className="text-danger">No transactions yet!</h4>;
+      return (
+        <div className="d-flex justify-content-center mt-5">
+          <h4 className="text-danger">No transactions yet!</h4>
+        </div>
+      );
     }
   }
 }

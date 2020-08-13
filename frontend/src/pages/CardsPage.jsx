@@ -37,7 +37,7 @@ class CardsPage extends Component {
                     </div>
                   </div>
 
-                  <div className="col-lg-8 p-lg-0 bg-light rounded">
+                  <div className="col-lg-8 p-lg-0">
                     <Switch>
                       <Route exact path="/cards" component={Cards} />
                       <Route exact path="/cards/transactions" component={Transactions} />
