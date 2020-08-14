@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Swal from "sweetalert2";
 
 import { auth } from "../firebase";
 import { getCustomerData, updateCustomerData } from "../redux/actions/customerActions";
@@ -13,20 +14,40 @@ class Cards extends React.Component {
   }
 
   deleteCard = () => {
+    const getUpdatedData = () => {
+      this.props.getCustomerData(auth.currentUser.uid);
+      this.setState({ isLoading: false });
+      Swal.fire("Blocked!", "Card has been blocked.", "success");
+    };
+
     if (auth.currentUser) {
-      this.setState({ isLoading: true });
-      this.props.updateCustomerData(auth.currentUser.uid, {
-        card: null,
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, block it!",
+      }).then((result) => {
+        if (result.value) {
+          this.setState({ isLoading: true });
+          this.props.updateCustomerData(auth.currentUser.uid, {
+            card: null,
+          });
+          setTimeout(getUpdatedData, 1000);
+        }
       });
-      const getUpdatedData = () => {
-        this.props.getCustomerData(auth.currentUser.uid);
-        this.setState({ isLoading: false });
-      };
-      setTimeout(getUpdatedData, 1000);
     }
   };
 
   requestNewCard = () => {
+    const getUpdatedData = () => {
+      this.props.getCustomerData(auth.currentUser.uid);
+      this.setState({ isLoading: false });
+      Swal.fire("", "You new card has been issued.", "success");
+    };
+
     if (auth.currentUser) {
       this.setState({ isLoading: true });
       this.props.updateCustomerData(auth.currentUser.uid, {
@@ -35,10 +56,6 @@ class Cards extends React.Component {
           balance: 65000,
         },
       });
-      const getUpdatedData = () => {
-        this.props.getCustomerData(auth.currentUser.uid);
-        this.setState({ isLoading: false });
-      };
       setTimeout(getUpdatedData, 1000);
     }
   };

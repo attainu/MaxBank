@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Swal from "sweetalert2";
 
 import { auth } from "../firebase";
 import { getCustomerData, updateCustomerData } from "../redux/actions/customerActions";
@@ -12,8 +13,6 @@ class AddPayee extends React.Component {
       bankName: "",
       ifsc: "",
       isLoading: false,
-      message: "",
-      btnValue: "Add Payee",
     };
   }
 
@@ -37,11 +36,12 @@ class AddPayee extends React.Component {
     });
 
     const getUpdatedData = () => {
-      this.setState({ isLoading: false, message: "" });
+      this.setState({ isLoading: false });
+      Swal.fire("", "Payee Added Successfully!", "success");
       this.props.getCustomerData(auth.currentUser.uid);
     };
     setTimeout(getUpdatedData, 1000);
-    this.setState({ payeeName: "", bankName: "", ifsc: "", message: "Payee Added Successfully", btnValue: "Add another Payee" });
+    this.setState({ payeeName: "", bankName: "", ifsc: "" });
   };
 
   render() {
@@ -71,6 +71,7 @@ class AddPayee extends React.Component {
               <input
                 type="text"
                 name="ifsc"
+                minLength="10"
                 maxLength="10"
                 className="form-control"
                 placeholder="10 digit IFSC"
@@ -80,7 +81,7 @@ class AddPayee extends React.Component {
               />
               <p className="text-success lead my-3">{this.state.message}</p>
               <button type="submit" className="btn btn-info font-weight-bold">
-                {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : `${this.state.btnValue}`}
+                {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Add Payee"}
               </button>
             </form>
           </div>

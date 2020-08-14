@@ -14,7 +14,6 @@ class FundTransfer extends React.Component {
         <div className="container">
           <h1 className="display-4 text-center">{name}</h1>
           <p className="lead text-center mb-5">{email}</p>
-          {/* <hr className="my-4"></hr> */}
           <div className="row justify-content-center">
             <div className="col-lg-9">
               <table className="table table-bordered">

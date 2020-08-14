@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 import { auth } from "../firebase";
 import { getCustomerData, updateCustomerData } from "../redux/actions/customerActions";
@@ -12,8 +13,7 @@ class FundTransfer extends React.Component {
       payee: "",
       amount: "",
       remarks: "",
-      message: "",
-      errorMessage: "",
+      isLoading: false,
     };
   }
 
@@ -28,19 +28,20 @@ class FundTransfer extends React.Component {
     const existingBalance = this.props.customerData.accounts.savingAccount.balance;
 
     if (amount > 25000) {
+      Swal.fire("", "You can't transfer more than ₹25,000 in one go!", "warning");
       this.setState({
-        errorMessage: "You can't transfer more than ₹25,000 in one go!",
+        amount: "",
       });
+    } else if (amount === 0) {
+      Swal.fire("", "Amount can't be 0!", "warning");
     } else {
       if (amount > existingBalance) {
-        this.setState({
-          errorMessage: `You don't have enough balance in you Saving Account to make this tranfer! Available Balance is ₹${existingBalance}`,
-        });
+        Swal.fire(
+          `Available Balance: ₹${existingBalance}`,
+          "You don't have enough balance in you Saving Account to make this tranfer!",
+          "error"
+        );
       } else {
-        this.setState({
-          errorMessage: "",
-        });
-
         const transaction = {
           paidTo: `${payee}`,
           amount: amount,
@@ -57,24 +58,19 @@ class FundTransfer extends React.Component {
           savingAccountTransactions: [...this.props.customerData.savingAccountTransactions, transaction],
         };
 
+        this.setState({ isLoading: true });
         this.props.updateCustomerData(auth.currentUser.uid, updatedData);
         const getUpdatedData = () => {
           this.props.getCustomerData(auth.currentUser.uid);
           this.setState({
-            message: "Transfer Successful!",
             payee: "",
             amount: "",
             remarks: "",
+            isLoading: false,
           });
+          Swal.fire("Transfer Successful!", "", "success");
         };
         setTimeout(getUpdatedData, 1000);
-
-        const resetMessage = () => {
-          this.setState({
-            message: "",
-          });
-        };
-        setTimeout(resetMessage, 3000);
       }
     }
   };
@@ -122,10 +118,8 @@ class FundTransfer extends React.Component {
                     value={this.state.remarks}
                     onChange={this.handleChange}
                   />
-                  <p className="text-success text-center lead mt-3">{this.state.message}</p>
-                  <p className="text-danger text-center lead mb-3">{this.state.errorMessage}</p>
-                  <button type="submit" className="btn btn-info">
-                    Transfer
+                  <button type="submit" className="btn btn-info mt-4">
+                    {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Transfer"}
                   </button>
                 </form>
               </div>

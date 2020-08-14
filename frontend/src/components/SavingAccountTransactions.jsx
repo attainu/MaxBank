@@ -11,7 +11,7 @@ class SavingAccountTransactions extends React.Component {
           Saving Account Transactions
         </a>
         <p className="mb-3"></p>
-        <div className="collapse overflow-auto" id="SATcollapse">
+        <div className="collapse" style={{ overflowX: "auto" }} id="SATcollapse">
           {savingAccountTransactions.length > 0 ? (
             <table className="table table-bordered">
               <thead className="thead-light">
