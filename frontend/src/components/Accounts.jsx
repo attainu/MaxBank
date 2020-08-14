@@ -7,11 +7,11 @@ class FundTransfer extends React.Component {
   render() {
     return (
       <>
-        <div className="bg-light rounded p-2">
+        <div className="bg-light rounded p-2 overflow-auto">
           <h3 className="text-center text-info mb-4 mt-2">Saving Account</h3>
           <SavingAccount />
         </div>
-        <div className="bg-light rounded p-2 mt-4">
+        <div className="bg-light rounded p-2 mt-4 overflow-auto">
           <h3 className="text-center text-info mb-4 mt-2">Other Accounts</h3>
           <OtherAccounts />
         </div>

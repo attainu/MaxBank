@@ -61,7 +61,7 @@ class Cards extends React.Component {
           {card ? (
             <div className="px-5">
               <div className="row">
-                <div className="col-lg-6">
+                <div className="col-lg-6 mb-4">
                   <div className="container border border-success rounded shadow-sm pt-3">
                     <p className="lead text-center">MaxBank VISA Credit</p>
                     <hr />
@@ -73,14 +73,14 @@ class Cards extends React.Component {
                   <h5 className="text-danger">₹{card.balance}</h5>
                 </div>
               </div>
-              <div className="container d-flex justify-content-center mt-5 mb-2">
+              <div className="container d-flex justify-content-center my-3">
                 <button className="btn btn-danger" onClick={this.deleteCard}>
                   {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Block/Delete Card"}
                 </button>
               </div>
             </div>
           ) : (
-            <div className="conatiner d-flex justify-content-center">
+            <div className="conatiner d-flex justify-content-center mb-2">
               <button className="btn btn-success" onClick={this.requestNewCard}>
                 {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Request for a New Card"}
               </button>

@@ -10,63 +10,67 @@ class FundTransfer extends React.Component {
     const { name, email, customerId, contactNumber, address, nominee } = this.props.customerData;
 
     return (
-      <div className="jumbotron jumbotron-fluid p-3 bg-light">
+      <div className="jumbotron jumbotron-fluid p-3 bg-light rounded">
         <div className="container">
           <h1 className="display-4 text-center">{name}</h1>
-          <p className="lead text-center">{email}</p>
-          <hr className="my-4"></hr>
-          <table className="table table-bordered">
-            <tbody>
-              <tr>
-                <td className="text-info lead">Customer ID:</td>
-                <td>{customerId}</td>
-              </tr>
-              <tr>
-                <td className="text-info lead">Contact Number:</td>
-                {contactNumber ? (
-                  <>
-                    <td>
-                      <p className="mb-2">{contactNumber}</p> <UpdateContact value="Change" />
-                    </td>
-                  </>
-                ) : (
-                  <td>
-                    <UpdateContact value="Update" />
-                  </td>
-                )}
-              </tr>
-              <tr>
-                <td className="text-info lead">Address:</td>
-                {address ? (
-                  <td>{address}</td>
-                ) : (
-                  <td>
-                    <UpdateAddress />
-                  </td>
-                )}
-              </tr>
-              <tr>
-                <td className="text-info lead">Nominee:</td>
-                {nominee ? (
-                  <td>
-                    <p>
-                      <span className="text-info">Name:</span> {nominee.name}
-                    </p>
-                    <p>
-                      <span className="text-info">Age:</span> {nominee.age}
-                    </p>
-                    <p>
-                      <span className="text-info">Relation:</span> {nominee.relation}
-                    </p>
-                  </td>
-                ) : (
-                  <td>
-                    <UpdateNominee />
-                  </td>
-                )}
-              </tr>
-            </tbody>
-          </table>
+          <p className="lead text-center mb-5">{email}</p>
+          {/* <hr className="my-4"></hr> */}
+          <div className="row justify-content-center">
+            <div className="col-lg-9">
+              <table className="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td className="text-info lead">Customer ID:</td>
+                    <td className="lead">{customerId}</td>
+                  </tr>
+                  <tr>
+                    <td className="text-info lead">Contact Number:</td>
+                    {contactNumber ? (
+                      <>
+                        <td className="lead">
+                          <p className="mb-2">{contactNumber}</p> <UpdateContact value="Change" />
+                        </td>
+                      </>
+                    ) : (
+                      <td>
+                        <UpdateContact value="Update" />
+                      </td>
+                    )}
+                  </tr>
+                  <tr>
+                    <td className="text-info lead">Address:</td>
+                    {address ? (
+                      <td className="lead">{address}</td>
+                    ) : (
+                      <td>
+                        <UpdateAddress />
+                      </td>
+                    )}
+                  </tr>
+                  <tr>
+                    <td className="text-info lead">Nominee:</td>
+                    {nominee ? (
+                      <td className="lead">
+                        <p>
+                          <span className="text-primary">Name:</span> {nominee.name}
+                        </p>
+                        <p>
+                          <span className="text-primary">Age:</span> {nominee.age}
+                        </p>
+                        <p>
+                          <span className="text-primary">Relation:</span> {nominee.relation}
+                        </p>
+                      </td>
+                    ) : (
+                      <td>
+                        <UpdateNominee />
+                      </td>
+                    )}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     );

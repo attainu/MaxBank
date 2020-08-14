@@ -29,6 +29,7 @@ class Login extends Component {
       })
       .catch((error) => {
         alert(error.message);
+        this.setState({ isLoading: false });
       });
   };
 

@@ -7,7 +7,7 @@ class Transactions extends React.Component {
 
     if (transactions.length > 0) {
       return (
-        <div className="px-3 pt-4 pb-1 bg-light rounded">
+        <div className="px-3 pt-4 pb-1 bg-light rounded overflow-auto">
           <table className="table table-bordered">
             <thead className="thead-light">
               <tr>
@@ -40,7 +40,7 @@ class Transactions extends React.Component {
       );
     } else {
       return (
-        <div className="d-flex justify-content-center mt-5">
+        <div className="d-flex justify-content-center bg-light rounded p-4">
           <h4 className="text-danger">No transactions yet!</h4>
         </div>
       );

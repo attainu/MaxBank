@@ -48,7 +48,7 @@ class Register extends Component {
                       .replace(/[^\dA-Z]/g, "")
                       .replace(/(.{4})/g, "$1 ")
                       .trim(),
-                    balance: 50000,
+                    balance: 100000,
                     pan: null,
                     openingDate: new Date().toString().slice(4, -40),
                   },
@@ -59,15 +59,18 @@ class Register extends Component {
                   balance: 65000,
                 },
                 transactions: [],
+                savingAccountTransactions: [],
+                payeeList: [],
               })
               .catch((error) => {
                 alert("Something went wrong with added user to firestore: ", error);
               });
-            this.setState({ isLoading: true });
+            this.setState({ isLoading: false });
             this.props.history.push("/my-accounts");
           })
           .catch((error) => {
             alert(error.message);
+            this.setState({ isLoading: false });
           });
       }
     }
