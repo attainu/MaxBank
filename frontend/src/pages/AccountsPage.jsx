@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import MyProfile from "../components/MyProfile";
 import Accounts from "../components/Accounts";
-import Deposits from "../components/Deposits";
+import FixedDeposits from "../components/FixedDeposits";
 
 class AccountsPage extends React.Component {
   render() {
@@ -42,7 +42,7 @@ class AccountsPage extends React.Component {
                           to="/my-accounts/deposits"
                           activeClassName="bg-info text-light text-center"
                         >
-                          Deposits
+                          Fixed Deposits
                         </NavLink>
                       </div>
                     </div>
@@ -51,7 +51,7 @@ class AccountsPage extends React.Component {
                       <Switch>
                         <Route exact path="/my-accounts" component={MyProfile} />
                         <Route exact path="/my-accounts/accounts" component={Accounts} />
-                        <Route exact path="/my-accounts/deposits" component={Deposits} />
+                        <Route exact path="/my-accounts/deposits" component={FixedDeposits} />
                       </Switch>
                     </div>
                   </div>

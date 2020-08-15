@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/BranchInfo.css";
 
 const BranchInfo = () => {
   return (

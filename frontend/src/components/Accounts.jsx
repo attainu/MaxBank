@@ -1,19 +1,21 @@
 import React from "react";
 
 import SavingAccount from "./SavingAccount";
-import OtherAccounts from "./OtherAccounts";
+import SavingAccountTransactions from "./SavingAccountTransactions";
 
 class FundTransfer extends React.Component {
   render() {
     return (
       <>
-        <div className="bg-light rounded p-2 overflow-auto">
-          <h3 className="text-center text-info mb-4 mt-2">Saving Account</h3>
-          <SavingAccount />
+        <div className="bg-light rounded p-2">
+          <h3 className="text-center text-info mt-2">Saving Account</h3>
+          <hr className="mb-3" />
+          <div className="overflow-auto">
+            <SavingAccount />
+          </div>
         </div>
-        <div className="bg-light rounded p-2 mt-4 overflow-auto">
-          <h3 className="text-center text-info mb-4 mt-2">Other Accounts</h3>
-          <OtherAccounts />
+        <div className="bg-light rounded p-2 pt-4 mt-4">
+          <SavingAccountTransactions />
         </div>
       </>
     );

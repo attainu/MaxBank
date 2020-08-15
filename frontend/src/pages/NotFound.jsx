@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
@@ -12,9 +13,9 @@ const NotFound = () => {
           Sorry but the page you are looking for does not exist, have been removed. name changed or is temporarily unavailable
         </p>
 
-        <a href="/" className="btn btn-info">
+        <Link to="/" className="btn btn-info">
           Go To Homepage
-        </a>
+        </Link>
       </div>
     </div>
   );

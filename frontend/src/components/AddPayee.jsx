@@ -46,7 +46,7 @@ class AddPayee extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid" id="testing">
+      <div className="container-fluid">
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <form className="p-3 d-flex flex-column align-items-center" onSubmit={this.handleSubmit}>

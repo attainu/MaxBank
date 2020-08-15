@@ -82,7 +82,7 @@ class FundTransfer extends React.Component {
         <div className="container-fluid bg-light rounded px-3 py-4">
           {payeeList.length > 0 ? (
             <div className="row justify-content-center">
-              <div className="col-9">
+              <div className="col-lg-9">
                 <h3 className="text-center text-info mb-3">Fund Transfer</h3>
                 <form className="d-flex flex-column align-items-center" onSubmit={this.handleSubmit}>
                   <select className="form-control" name="payee" required value={this.state.payee} onChange={this.handleChange}>
@@ -127,7 +127,7 @@ class FundTransfer extends React.Component {
           ) : (
             <div className="d-flex flex-column align-items-center">
               <h4 className="text-danger mb-3">No Payee in your account!</h4>
-              <h4 className="text-info">You can transfer the funds only to the added payee.</h4>
+              <h5 className="text-info text-center">You can transfer the funds only to the added payee.</h5>
               <Link className="btn btn-info mt-3" to="/payments/manage-payee">
                 Add Payee
               </Link>

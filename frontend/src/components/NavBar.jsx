@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, withRouter } from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { auth } from "../firebase";
@@ -17,62 +17,88 @@ const NavBar = (props) => {
   };
 
   return (
-    <div className="NavBar">
-      <NavLink to="/">
-        <button style={{ color: "red", fontSize: "2.0rem" }}>MaxBank</button>
-      </NavLink>
+    <header className="NavBar">
+      <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <Link to="/" className="navbar-brand ml-lg-5 pl-lg-4" style={{ color: "red", fontSize: "2.0rem" }}>
+          MaxBank
+        </Link>
 
-      {props.user ? (
-        <>
-          <NavLink
-            to="/my-accounts"
-            className="text-decoration-none text-light"
-            activeClassName="border-bottom font-weight-bold font-italic"
-          >
-            My Account
-          </NavLink>
-          <NavLink
-            to="/cards"
-            className="text-decoration-none text-light"
-            activeClassName="border-bottom font-weight-bold font-italic"
-          >
-            Cards
-          </NavLink>
-          <NavLink
-            to="/payments"
-            className="text-decoration-none text-light"
-            activeClassName="border-bottom font-weight-bold font-italic"
-          >
-            Payments
-          </NavLink>
-        </>
-      ) : (
-        <NavLink to="/" className="text-decoration-none text-light" activeClassName="border-bottom font-weight-bold font-italic">
-          Home
-        </NavLink>
-      )}
-
-      <NavLink
-        to="/branch-info"
-        className="text-decoration-none text-light"
-        activeClassName="border-bottom font-weight-bold font-italic"
-      >
-        Branch Info
-      </NavLink>
-      <NavLink
-        to="/help"
-        className="text-decoration-none text-light"
-        activeClassName="border-bottom font-weight-bold font-italic"
-      >
-        Help
-      </NavLink>
-
-      {props.user ? (
-        <button onClick={handleLogout} className="font-weight-bold text-danger">
-          Logout
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+          <span className="navbar-toggler-icon"></span>
         </button>
-      ) : null}
-    </div>
+
+        <div className="collapse navbar-collapse" id="navbarCollapse">
+          <ul className="navbar-nav mx-auto mt-3 mt-md-0">
+            {props.user ? (
+              <>
+                <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
+                  <NavLink
+                    to="/my-accounts"
+                    className="text-decoration-none text-light"
+                    activeClassName="border-bottom font-weight-bold font-italic"
+                  >
+                    My Account
+                  </NavLink>
+                </li>
+                <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
+                  <NavLink
+                    to="/cards"
+                    className="text-decoration-none text-light"
+                    activeClassName="border-bottom font-weight-bold font-italic"
+                  >
+                    Cards
+                  </NavLink>
+                </li>
+                <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
+                  {" "}
+                  <NavLink
+                    to="/payments"
+                    className="text-decoration-none text-light"
+                    activeClassName="border-bottom font-weight-bold font-italic"
+                  >
+                    Payments
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
+                <NavLink
+                  to="/"
+                  className="text-decoration-none text-light"
+                  activeClassName="border-bottom font-weight-bold font-italic"
+                >
+                  Home
+                </NavLink>
+              </li>
+            )}
+
+            <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
+              <NavLink
+                to="/branch-info"
+                className="text-decoration-none text-light"
+                activeClassName="border-bottom font-weight-bold font-italic"
+              >
+                Branch Info
+              </NavLink>
+            </li>
+            <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
+              <NavLink
+                to="/help"
+                className="text-decoration-none text-light"
+                activeClassName="border-bottom font-weight-bold font-italic"
+              >
+                Help
+              </NavLink>
+            </li>
+          </ul>
+          {props.user ? (
+            <button onClick={handleLogout} className="mr-lg-5 my-3 my-md-0 btn btn-outline-danger">
+              Sign out
+            </button>
+          ) : null}
+        </div>
+      </nav>
+    </header>
   );
 };
 

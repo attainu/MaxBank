@@ -52,7 +52,7 @@ class Register extends Component {
                     pan: null,
                     openingDate: new Date().toString().slice(4, -40),
                   },
-                  otherAccounts: [],
+                  fixedDeposits: [],
                 },
                 card: {
                   cardNumber: "4242 4242 4242 4242",

@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, NavLink, Switch, Route } from "react-router-dom";
 
 import MobileRecharge from "./MobileRecharge";
 import MetroRecharge from "./MetroRecharge";
@@ -8,31 +9,41 @@ class Recharge extends React.Component {
   render() {
     return (
       <div className="bg-light rounded">
-        <nav>
-          <div className="nav nav-tabs nav-pills h5 nav-justified" role="tablist">
-            <a className="nav-item nav-link active py-3" data-toggle="tab" href="#mobile" role="tab">
+        <Router>
+          <div className="list-group list-group-horizontal-lg">
+            <NavLink
+              exact
+              className="list-group-item flex-fill  text-decoration-none font-weight-bold px-5 py-3 text-center"
+              to="/payments/recharge"
+              activeClassName="bg-dark text-light"
+            >
               Mobile Recharge
-            </a>
-            <a className="nav-item nav-link py-3" data-toggle="tab" href="#dth" role="tab">
+            </NavLink>
+            <NavLink
+              exact
+              className="list-group-item flex-fill text-decoration-none font-weight-bold px-5 py-3 text-center"
+              to="/payments/recharge/dth"
+              activeClassName="bg-dark text-light"
+            >
               DTH Recharge
-            </a>
-            <a className="nav-item nav-link py-3" data-toggle="tab" href="#metro" role="tab">
-              Metro Recharge
-            </a>
-          </div>
-        </nav>
+            </NavLink>
 
-        <div className="tab-content">
-          <div className="tab-pane fade pt-4 show active" id="mobile" role="tabpanel">
-            <MobileRecharge />
+            <NavLink
+              exact
+              className="list-group-item flex-fill text-decoration-none font-weight-bold px-5 py-3 text-center"
+              to="/payments/recharge/metro"
+              activeClassName="bg-dark text-light"
+            >
+              Metro Recharge
+            </NavLink>
           </div>
-          <div className="tab-pane fade pt-4" id="dth" role="tabpanel">
-            <DthRecharge />
-          </div>
-          <div className="tab-pane fade pt-4" id="metro" role="tabpanel">
-            <MetroRecharge />
-          </div>
-        </div>
+
+          <Switch>
+            <Route exact path="/payments/recharge" component={MobileRecharge} />
+            <Route exact path="/payments/recharge/dth" component={DthRecharge} />
+            <Route exact path="/payments/recharge/metro" component={MetroRecharge} />
+          </Switch>
+        </Router>
       </div>
     );
   }
