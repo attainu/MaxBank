@@ -34,7 +34,7 @@ class MetroRecharge extends React.Component {
             <form className="p-3" onSubmit={this.submitHandler}>
               <div className="form-group">
                 <select
-                  className="form-control"
+                  className="custom-select"
                   name="operator"
                   required
                   value={this.state.operator}

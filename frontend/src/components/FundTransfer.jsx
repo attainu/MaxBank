@@ -83,9 +83,9 @@ class FundTransfer extends React.Component {
           {payeeList.length > 0 ? (
             <div className="row justify-content-center">
               <div className="col-lg-9">
-                <h3 className="text-center text-info mb-3">Fund Transfer</h3>
+                <h3 className="text-center text-info mb-5">Fund Transfer</h3>
                 <form className="d-flex flex-column align-items-center" onSubmit={this.handleSubmit}>
-                  <select className="form-control" name="payee" required value={this.state.payee} onChange={this.handleChange}>
+                  <select className="custom-select" name="payee" required value={this.state.payee} onChange={this.handleChange}>
                     <option value="" disabled hidden>
                       Select Payee
                     </option>

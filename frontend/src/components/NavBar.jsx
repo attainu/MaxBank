@@ -19,7 +19,7 @@ const NavBar = (props) => {
   return (
     <header className="NavBar">
       <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <Link to="/" className="navbar-brand ml-lg-5 pl-lg-4" style={{ color: "red", fontSize: "2.0rem" }}>
+        <Link to="/" className="navbar-brand ml-lg-5 pl-lg-4" style={{ color: "red", fontSize: "2.25rem" }}>
           MaxBank
         </Link>
 
@@ -34,6 +34,7 @@ const NavBar = (props) => {
                 <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
                   <NavLink
                     to="/my-accounts"
+                    style={{ fontSize: "1.1rem" }}
                     className="text-decoration-none text-light"
                     activeClassName="border-bottom font-weight-bold font-italic"
                   >
@@ -43,6 +44,7 @@ const NavBar = (props) => {
                 <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
                   <NavLink
                     to="/cards"
+                    style={{ fontSize: "1.1rem" }}
                     className="text-decoration-none text-light"
                     activeClassName="border-bottom font-weight-bold font-italic"
                   >
@@ -52,6 +54,7 @@ const NavBar = (props) => {
                 <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
                   {" "}
                   <NavLink
+                    style={{ fontSize: "1.1rem" }}
                     to="/payments"
                     className="text-decoration-none text-light"
                     activeClassName="border-bottom font-weight-bold font-italic"
@@ -64,6 +67,7 @@ const NavBar = (props) => {
               <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
                 <NavLink
                   to="/"
+                  style={{ fontSize: "1.1rem" }}
                   exact
                   className="text-decoration-none text-light"
                   activeClassName="border-bottom font-weight-bold font-italic"
@@ -76,6 +80,7 @@ const NavBar = (props) => {
             <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
               <NavLink
                 to="/branch-info"
+                style={{ fontSize: "1.1rem" }}
                 className="text-decoration-none text-light"
                 activeClassName="border-bottom font-weight-bold font-italic"
               >
@@ -85,6 +90,7 @@ const NavBar = (props) => {
             <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
               <NavLink
                 to="/contact-us"
+                style={{ fontSize: "1.1rem" }}
                 className="text-decoration-none text-light"
                 activeClassName="border-bottom font-weight-bold font-italic"
               >
@@ -93,7 +99,7 @@ const NavBar = (props) => {
             </li>
           </ul>
           {props.user ? (
-            <button onClick={handleLogout} className="mr-lg-5 my-3 my-md-0 btn btn-outline-danger">
+            <button onClick={handleLogout} className="mr-lg-5 my-3 my-md-0 btn btn-outline-danger" style={{ fontSize: "1.1rem" }}>
               Sign out
             </button>
           ) : null}

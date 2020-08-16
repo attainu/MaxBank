@@ -2,8 +2,8 @@ import React from "react";
 import { Redirect, Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Login from "./Login";
-import Register from "./Register";
+import Login from "../components/Login";
+import Register from "../components/Register";
 
 class HomePage extends React.Component {
   render() {

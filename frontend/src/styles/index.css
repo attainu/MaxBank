@@ -37,28 +37,11 @@ body {
   background-attachment: fixed;
 }
 
-.AccountsPage {
-  width: 100%;
-  height: 90vh;
-  overflow: auto;
-  padding: 40px 5px;
-}
-
-.PaymentsPage {
-  width: 100%;
-  height: 90vh;
-  overflow: auto;
-  padding: 40px 5px;
-}
-
-.CardsPage {
-  width: 100%;
-  height: 90vh;
-  overflow: auto;
-  padding: 40px 5px;
-}
-
-.BranchInfo {
+.AccountsPage,
+.PaymentsPage,
+.CardsPage,
+.BranchInfo,
+.ContactUsPage {
   width: 100%;
   height: 90vh;
   overflow: auto;
@@ -68,11 +51,4 @@ body {
 .BranchInfoContainer {
   min-height: 100%;
   overflow-y: auto;
-}
-
-.ContactUsPage {
-  width: 100%;
-  height: 90vh;
-  overflow: auto;
-  padding: 40px 5px;
 }

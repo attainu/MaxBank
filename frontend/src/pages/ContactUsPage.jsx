@@ -6,7 +6,7 @@ import Address from "../components/Address";
 const ContactUs = () => {
   return (
     <div className="ContactUsPage">
-      <div className="container bg-light rounded shadow mb-4 p-5">
+      <div className="container bg-light rounded shadow mb-4">
         <ContactUsForm />
       </div>
 

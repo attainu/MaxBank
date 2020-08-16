@@ -45,7 +45,7 @@ const BranchInfo = (props) => {
                 <tbody>
                   <tr>
                     <td className="text-info lead">Bank_Name:</td>
-                    <td className="lead">{props.branchSearchResult.bank}</td>
+                    <td className="lead">Max Bank</td>
                   </tr>
                   <tr>
                     <td className="text-info lead">MICR:</td>
@@ -57,7 +57,7 @@ const BranchInfo = (props) => {
                   </tr>
                   <tr>
                     <td className="text-info lead">Contact:</td>
-                    <td className="lead">{props.branchSearchResult.contact}</td>
+                    <td className="lead">{props.branchSearchResult.contact.slice(0, -2)}</td>
                   </tr>
                   <tr>
                     <td className="text-info lead">Address:</td>

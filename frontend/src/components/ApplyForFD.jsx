@@ -95,7 +95,7 @@ class ApplyForFD extends React.Component {
               <div className="col-lg-7">
                 <form className="d-flex flex-column align-items-center" onSubmit={this.handleSubmit}>
                   <select
-                    className="form-control"
+                    className="custom-select"
                     name="fromAccount"
                     required
                     value={this.state.fromAccount}
@@ -108,7 +108,7 @@ class ApplyForFD extends React.Component {
                   </select>
 
                   <select
-                    className="form-control my-3"
+                    className="custom-select my-3"
                     name="scheme"
                     required
                     value={this.state.scheme}

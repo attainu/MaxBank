@@ -77,7 +77,7 @@ class MobileRecharge extends React.Component {
               </div>
               <div className="form-group">
                 <select
-                  className="form-control"
+                  className="custom-select"
                   name="operator"
                   required
                   value={this.state.operator}
