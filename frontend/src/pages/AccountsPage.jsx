@@ -19,7 +19,7 @@ class AccountsPage extends React.Component {
                 <Router>
                   <div className="row justify-content-around">
                     <div className="col-lg-3 mb-5 p-lg-0">
-                      <div className="list-group">
+                      <div className="list-group shadow">
                         <NavLink
                           exact
                           className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
@@ -59,7 +59,9 @@ class AccountsPage extends React.Component {
               </div>
             </>
           ) : (
-            <div className="spinner-border mt-5" role="status" style={{ width: "5rem", height: "5rem" }}></div>
+            <div className="h-100 d-flex align-items-center justify-content-center">
+              <div className="spinner-border" role="status" style={{ width: "5rem", height: "5rem" }}></div>
+            </div>
           )}
         </div>
       );

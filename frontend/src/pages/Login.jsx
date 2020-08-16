@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 import { auth } from "../firebase";
 
@@ -25,59 +26,50 @@ class Login extends Component {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ isLoading: false });
-        this.props.history.push("/my-accounts");
       })
       .catch((error) => {
-        alert(error.message);
-        this.setState({ isLoading: false });
+        this.setState({ email: "", password: "", isLoading: false });
+        Swal.fire("", error.message, "error");
       });
   };
 
-  handleRegister = () => {
-    this.props.history.push("/register");
-  };
-
   render() {
-    return this.props.user ? (
-      <Redirect to="/my-accounts" />
-    ) : (
-      <div className="LoginOuterDiv">
-        <img
-          className="LoginImg"
-          src="https://st.depositphotos.com/1049680/2265/i/450/depositphotos_22652109-stock-photo-young-woman-using-laptop.jpg"
-          alt="work on laptop"
-        />
-
-        <div className="LoginDiv">
-          <form className="LoginForm" onSubmit={this.handleSubmit}>
-            <h1>Login to Internet Banking</h1>
-            <p onClick={this.handleRegister} className="RegisterInLogin">
-              New User? Click here to Register
-            </p>
-            <input
-              onChange={this.handleChange}
-              value={this.state.title}
-              type="email"
-              name="email"
-              placeholder="email"
-              className="LoginInput"
-              required
-            />
-            <input
-              onChange={this.handleChange}
-              value={this.state.password}
-              type="password"
-              name="password"
-              placeholder="password"
-              className="LoginInput"
-              required
-            />
-            <button type="submit" className="LoginBtn">
-              {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Login"}
-            </button>
-          </form>
+    return (
+      <form className="d-flex flex-column align-items-center px-3 py-5 bg-light rounded-lg shadow" onSubmit={this.handleSubmit}>
+        <h3 className="mb-5">Sign into your account</h3>
+        <div className="container-fluid">
+          <div className="row justify-content-center">
+            <div className="col-md-10">
+              <input
+                className="form-control form-control-lg rounded-pill mb-3"
+                onChange={this.handleChange}
+                value={this.state.title}
+                type="email"
+                name="email"
+                placeholder="email"
+                required
+              />
+              <input
+                className="form-control form-control-lg rounded-pill"
+                onChange={this.handleChange}
+                value={this.state.password}
+                type="password"
+                name="password"
+                placeholder="password"
+                required
+              />
+              <button type="submit" className="btn btn-lg btn-outline-info my-4 mt-1 rounded-pill btn-block">
+                {this.state.isLoading ? <span className="spinner-border"></span> : "Login"}
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <p>
+          Don't have an account?
+          <Link to="/register"> Register</Link>
+        </p>
+      </form>
     );
   }
 }

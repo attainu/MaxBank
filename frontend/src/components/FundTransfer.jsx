@@ -79,7 +79,7 @@ class FundTransfer extends React.Component {
     if (this.props.customerData) {
       const { payeeList } = this.props.customerData;
       return (
-        <div className="container-fluid bg-light rounded px-3 py-4">
+        <div className="container-fluid bg-light rounded px-3 py-4 shadow">
           {payeeList.length > 0 ? (
             <div className="row justify-content-center">
               <div className="col-lg-9">

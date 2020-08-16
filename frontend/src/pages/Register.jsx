@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 import { auth, db } from "../firebase";
 
@@ -19,16 +20,15 @@ class Register extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     const { username, email, password, confirmPassword } = this.state;
-    this.setState({ isLoading: true });
 
     if (password.length < 6) {
-      alert("Passworld must be atleast 6 digits long!");
+      Swal.fire("", "Passworld must be atleast 6 digits long!", "warning");
     } else {
       if (password !== confirmPassword) {
-        alert("Password not matched with Confirm Password");
+        Swal.fire("", "Password not matched with Confirm Password!", "warning");
       } else {
+        this.setState({ isLoading: true });
         auth
           .createUserWithEmailAndPassword(email, password)
           .then((res) => {
@@ -63,81 +63,73 @@ class Register extends Component {
                 payeeList: [],
               })
               .catch((error) => {
-                alert("Something went wrong with added user to firestore: ", error);
+                Swal.fire("", error.message, "error");
               });
             this.setState({ isLoading: false });
-            this.props.history.push("/my-accounts");
           })
           .catch((error) => {
-            alert(error.message);
-            this.setState({ isLoading: false });
+            this.setState({ username: "", email: "", password: "", confirmPassword: "", isLoading: false });
+            Swal.fire("", error.message, "error");
           });
       }
     }
   };
 
-  handleLogin = () => {
-    this.props.history.push("/login");
-  };
-
   render() {
-    return this.props.user ? (
-      <Redirect to="/my-accounts" />
-    ) : (
-      <div className="RegisterOuterDiv">
-        <img
-          className="RegisterImg"
-          src="https://previews.123rf.com/images/rawpixel/rawpixel1703/rawpixel170317195/73791587-internet-banking-transaction-financial-icon.jpg"
-          alt="internet banking"
-        />
-        <div className="RegisterDiv">
-          <form className="RegisterForm" onSubmit={this.handleSubmit}>
-            <h1>Sign Up</h1>
-            <p onClick={this.handleLogin} className="LoginInRegister">
-              Already a User? Click here to Login
-            </p>
-            <input
-              onChange={this.handleChange}
-              value={this.state.username}
-              type="text"
-              name="username"
-              placeholder="name"
-              className="RegisterInput"
-              required
-            />
-            <input
-              onChange={this.handleChange}
-              value={this.state.email}
-              type="email"
-              name="email"
-              placeholder="email"
-              className="RegisterInput"
-              required
-            />
-            <input
-              onChange={this.handleChange}
-              value={this.state.password}
-              type="password"
-              name="password"
-              placeholder="password"
-              className="RegisterInput"
-              required
-            />
-            <input
-              onChange={this.handleChange}
-              value={this.state.confirmPassword}
-              type="password"
-              name="confirmPassword"
-              placeholder="confirm password"
-              className="RegisterInput"
-              required
-            />
-            <button type="submit" className="RegisterBtn">
-              {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Sign Up"}
-            </button>
-          </form>
+    return (
+      <form className="d-flex flex-column align-items-center px-3 py-4 bg-light rounded-lg shadow" onSubmit={this.handleSubmit}>
+        <h3 className="mb-5">Sign Up</h3>
+        <div className="container-fluid">
+          <div className="row justify-content-center">
+            <div className="col-md-10">
+              <input
+                className="form-control form-control-lg rounded-pill mb-3"
+                onChange={this.handleChange}
+                value={this.state.username}
+                type="text"
+                name="username"
+                placeholder="name"
+                required
+              />
+              <input
+                className="form-control form-control-lg rounded-pill mb-3"
+                onChange={this.handleChange}
+                value={this.state.email}
+                type="email"
+                name="email"
+                placeholder="email"
+                required
+              />
+              <input
+                className="form-control form-control-lg rounded-pill mb-3"
+                onChange={this.handleChange}
+                value={this.state.password}
+                type="password"
+                name="password"
+                placeholder="password"
+                required
+              />
+              <input
+                className="form-control form-control-lg rounded-pill"
+                onChange={this.handleChange}
+                value={this.state.confirmPassword}
+                type="password"
+                name="confirmPassword"
+                placeholder="confirm password"
+                required
+              />
+              <button type="submit" className="btn btn-lg btn-outline-info my-4 mt-1 rounded-pill btn-block">
+                {this.state.isLoading ? <span className="spinner-border"></span> : "Sign Up"}
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <p>
+          Already have an account?
+          <Link to="/"> Login</Link>
+        </p>
+      </form>
     );
   }
 }

@@ -64,7 +64,7 @@ class Cards extends React.Component {
     const card = this.props.customerData.card;
 
     return (
-      <div className="container-fluid p-4 bg-light rounded">
+      <div className="container-fluid p-4 bg-light rounded shadow">
         {card ? (
           <>
             <h4 className="text-info">Your active cards:</h4>

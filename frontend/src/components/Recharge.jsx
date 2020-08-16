@@ -8,7 +8,7 @@ import DthRecharge from "./DthRecharge";
 class Recharge extends React.Component {
   render() {
     return (
-      <div className="bg-light rounded">
+      <div className="bg-light rounded shadow">
         <Router>
           <div className="list-group list-group-horizontal-lg">
             <NavLink

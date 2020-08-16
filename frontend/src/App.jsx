@@ -7,8 +7,6 @@ import { setUser } from "./redux/actions/userActions";
 import { getCustomerData } from "./redux/actions/customerActions";
 
 import HomePage from "./pages/HomePage";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import AccountsPage from "./pages/AccountsPage";
 import CardsPage from "./pages/CardsPage";
@@ -25,11 +23,12 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
+          <Route exact path="/register" component={HomePage} />
+
           <Route path="/my-accounts" component={AccountsPage} />
           <Route path="/cards" component={CardsPage} />
           <Route path="/payments" component={PaymentsPage} />
+
           <Route exact path="/branch-info" component={BranchInfo} />
 
           <Route component={NotFound} />

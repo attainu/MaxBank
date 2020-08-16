@@ -31,203 +31,31 @@ body {
   width: 100%;
   height: 90vh;
   overflow: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.LoginDiv {
-  width: 40%;
-  height: 40vh;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  margin: 40px;
-  margin-right: 20px;
-  position: absolute;
-  top: 8vh;
-  left: 45vw;
-}
-
-.LoginForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 30px;
-
-  background: skyblue;
-  box-shadow: 0 0 10px rgba(43, 33, 33, 0.2);
-}
-
-.LoginForm h1 {
-  margin-bottom: 10px;
-  font-size: 1rem;
-  color: navy;
-}
-
-.RegisterInLogin {
-  font-size: 0.8rem;
-  margin-bottom: 40px;
-  color: blue;
-}
-
-.RegisterInLogin:hover {
-  cursor: pointer;
-  color: rgb(162, 0, 255);
-}
-
-.LoginInput {
-  margin-bottom: 30px;
-  width: 200px;
-  height: 30px;
-  padding: 10px;
-  outline: none;
-  border: none;
-  font-size: 0.8rem;
-  box-shadow: 0 0 10px rgba(43, 33, 33, 0.2);
-}
-
-.LoginInput:focus {
-  background-color: wheat;
-}
-
-.LoginBtn {
-  width: 60%;
-  margin-top: 10px;
-  border-radius: 10px;
-  outline: none;
-  border: none;
-  padding: 5px 0;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  background-color: navy;
-}
-
-.LoginBtn:hover {
-  cursor: pointer;
-  background-color: rgb(90, 192, 99);
-}
-
-.RegisterDiv {
-  width: 30%;
-  height: 40vh;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  margin: 40px;
-  margin-right: 20px;
-  position: absolute;
-  top: 0;
-  left: 60vw;
-}
-
-.RegisterForm {
-  margin-bottom: 10px;
-  font-size: 1rem;
-  color: navy;
-  padding: 20px 30px;
-  background: skyblue;
-  box-shadow: 0 0 10px rgba(43, 33, 33, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.RegisterForm h1 {
-  margin-bottom: 20px;
-  font-size: 1rem;
-  color: navy;
-}
-
-.LoginInRegister {
-  font-size: 0.8rem;
-  margin-bottom: 20px;
-  color: blue;
-}
-
-.LoginInRegister:hover {
-  cursor: pointer;
-  color: rgb(162, 0, 255);
-}
-
-.RegisterInput {
-  margin-bottom: 30px;
-  width: 180px;
-  height: 30px;
-  padding: 10px;
-  outline: none;
-  border: none;
-  font-size: 0.8rem;
-  box-shadow: 0 0 10px rgba(43, 33, 33, 0.2);
-}
-
-.RegisterInput:focus {
-  background-color: wheat;
-}
-
-.RegisterBtn {
-  width: 60%;
-
-  border-radius: 10px;
-  outline: none;
-  border: none;
-  padding: 5px 0;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  background-color: navy;
-}
-
-.RegisterBtn:hover {
-  cursor: pointer;
-  background-color: rgb(70, 139, 230);
+  background: url(../images/homepage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .AccountsPage {
   width: 100%;
   height: 90vh;
   overflow: auto;
-  padding: 40px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.AccountsPageContainer {
-  height: 100%;
-}
-
-.AccountsDetailsContainer {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.SavingAccountContainer,
-.CurrentAccountContainer {
-  width: 50%;
-  height: 100%;
-  padding: 0 30px;
-}
-
-.CardsContainer {
-  width: 100%;
-  height: 100%;
+  padding: 40px 5px;
 }
 
 .PaymentsPage {
   width: 100%;
   height: 90vh;
-  padding: 40px 0;
   overflow: auto;
+  padding: 40px 5px;
 }
 
 .CardsPage {
   width: 100%;
   height: 90vh;
   overflow: auto;
+  padding: 40px 5px;
 }
 
 .BranchInfo {
@@ -236,157 +64,4 @@ body {
   overflow: auto;
   padding: 40px 20px;
   background-color: white;
-}
-
-/** **/
-
-.ProductsPage {
-  width: 100%;
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.UpperPage {
-  display: flex;
-}
-
-.ProductsPage img {
-  width: 40vw;
-  height: 30vh;
-  margin-right: 1px;
-  margin-top: 0;
-}
-
-.sideImg {
-  display: inline-block;
-  width: 60vw;
-  height: 30vh;
-  background-color: maroon;
-  color: white;
-  font-size: large;
-}
-
-.LowerPage {
-  display: flex;
-}
-
-.ProductsSideBar {
-  margin-top: 40px;
-  margin-left: 20px;
-  width: 15vw;
-  display: flex;
-  flex-direction: column;
-}
-
-.ProductsContents {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-}
-
-.HomePage img {
-  width: 100%;
-  height: 60vh;
-}
-
-.Login1 {
-  height: 40px;
-  width: 273px;
-  background-color: transparent;
-  color: grey;
-
-  margin-left: 65vw;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.Login2 {
-  height: 40px;
-  width: 70px;
-  margin-left: 20px;
-  background-color: red;
-  color: white;
-}
-
-.InvestFD {
-  position: relative;
-}
-
-.InvestFD1 {
-  position: absolute;
-  top: 60px;
-  left: 530px;
-  font-size: 1.5rem;
-  color: navy;
-}
-
-.InvestFD2 {
-  position: absolute;
-  top: 140px;
-  left: 530px;
-  color: navy;
-}
-
-.InvestFD3 {
-  position: absolute;
-  top: 180px;
-  left: 530px;
-  color: navy;
-}
-
-.Phishing {
-  background-color: navy;
-  color: white;
-}
-
-.Phishing p {
-  margin: 20px;
-}
-
-.InvestHealth {
-  position: relative;
-}
-
-.InvestHealth1 {
-  position: absolute;
-  top: 40px;
-  left: 50px;
-  font-size: 2rem;
-  color: navy;
-}
-
-.InvestHealth2 {
-  position: absolute;
-  top: 140px;
-  left: 50px;
-  color: navy;
-}
-
-.InvestHealth3 {
-  position: absolute;
-  top: 180px;
-  left: 50px;
-  color: navy;
-}
-
-.LoginImg {
-  width: 130%;
-  height: 100vh;
-}
-
-.LoginOuterDiv {
-  position: relative;
-  left: 0px;
-}
-
-.RegisterImg {
-  width: 100%;
-  height: 100vh;
-}
-
-.RegisterOuterDiv {
-  position: relative;
-  left: 0px;
 }
