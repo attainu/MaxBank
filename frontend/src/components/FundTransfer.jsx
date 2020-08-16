@@ -83,9 +83,16 @@ class FundTransfer extends React.Component {
           {payeeList.length > 0 ? (
             <div className="row justify-content-center">
               <div className="col-lg-9">
-                <h3 className="text-center text-info mb-5">Fund Transfer</h3>
+                <h3 className="text-center text-info">Fund Transfer</h3>
+                <hr className="mb-4" />
                 <form className="d-flex flex-column align-items-center" onSubmit={this.handleSubmit}>
-                  <select className="custom-select" name="payee" required value={this.state.payee} onChange={this.handleChange}>
+                  <select
+                    className="custom-select custom-select-lg"
+                    name="payee"
+                    required
+                    value={this.state.payee}
+                    onChange={this.handleChange}
+                  >
                     <option value="" disabled hidden>
                       Select Payee
                     </option>
@@ -103,7 +110,7 @@ class FundTransfer extends React.Component {
                     pattern="\d*"
                     minLength="1"
                     maxLength="5"
-                    className="form-control my-3"
+                    className="form-control form-control-lg my-3"
                     placeholder="Amount (₹25,000 max.)"
                     required
                     value={this.state.amount}
@@ -112,13 +119,13 @@ class FundTransfer extends React.Component {
                   <input
                     type="text"
                     name="remarks"
-                    className="form-control"
+                    className="form-control form-control-lg"
                     placeholder="Remarks"
                     required
                     value={this.state.remarks}
                     onChange={this.handleChange}
                   />
-                  <button type="submit" className="btn btn-info mt-4">
+                  <button type="submit" className="btn btn-lg btn-outline-info mt-4 mb-3">
                     {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Transfer"}
                   </button>
                 </form>

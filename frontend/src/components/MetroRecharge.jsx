@@ -32,53 +32,50 @@ class MetroRecharge extends React.Component {
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <form className="p-3" onSubmit={this.submitHandler}>
-              <div className="form-group">
-                <select
-                  className="custom-select"
-                  name="operator"
-                  required
-                  value={this.state.operator}
-                  onChange={this.handleChange}
-                >
-                  <option value="" disabled hidden>
-                    Select Operator
-                  </option>
-                  <option value="Delhi-Metro">Delhi Metro</option>
-                  <option value="Hyderabad-Metro">Hyderabad Metro</option>
-                  <option value="Mumbai-Metro">Mumbai Metro</option>
-                </select>
-              </div>
-              <div className="form-group w-lg-50">
-                <input
-                  type="text"
-                  name="cardNumber"
-                  pattern="\d*"
-                  minLength="10"
-                  maxLength="10"
-                  className="form-control"
-                  placeholder="10 digit metro card number"
-                  required
-                  value={this.state.cardNumber}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="amount"
-                  pattern="\d*"
-                  maxLength="3"
-                  className="form-control"
-                  placeholder="Amount"
-                  required
-                  value={this.state.amount}
-                  onChange={this.handleChange}
-                />
-              </div>
+              <select
+                className="custom-select custom-select-lg"
+                name="operator"
+                required
+                value={this.state.operator}
+                onChange={this.handleChange}
+              >
+                <option value="" disabled hidden>
+                  Select Operator
+                </option>
+                <option value="Delhi-Metro">Delhi Metro</option>
+                <option value="Hyderabad-Metro">Hyderabad Metro</option>
+                <option value="Mumbai-Metro">Mumbai Metro</option>
+              </select>
+
+              <input
+                type="text"
+                name="cardNumber"
+                pattern="\d*"
+                minLength="10"
+                maxLength="10"
+                className="form-control my-3 form-control-lg"
+                placeholder="10 digit metro card number"
+                required
+                value={this.state.cardNumber}
+                onChange={this.handleChange}
+              />
+
+              <input
+                type="text"
+                name="amount"
+                pattern="\d*"
+                maxLength="3"
+                className="form-control form-control-lg"
+                placeholder="Amount"
+                required
+                value={this.state.amount}
+                onChange={this.handleChange}
+              />
+
               <p className="text-danger lead m-2">{this.state.errorMessage}</p>
-              <div className="w-100 d-flex justify-content-center">
+              <div className="w-100 d-flex justify-content-center mt-4">
                 {!this.state.allOk ? (
-                  <button type="submit" className="btn btn-info">
+                  <button type="submit" className="btn btn-lg btn-outline-info px-5">
                     Proceed
                   </button>
                 ) : (

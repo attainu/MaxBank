@@ -1,26 +1,21 @@
 import React from "react";
-import { Link, NavLink, withRouter } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { auth } from "../firebase";
 
 const NavBar = (props) => {
   const handleLogout = () => {
-    auth
-      .signOut()
-      .then(() => {
-        props.history.push("/");
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    auth.signOut().catch((err) => {
+      alert(err);
+    });
   };
 
   return (
     <header className="NavBar">
       <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <Link to="/" className="navbar-brand ml-lg-5 pl-lg-4" style={{ color: "red", fontSize: "2.25rem" }}>
-          MaxBank
+          <i className="fab fa-maxcdn"></i>axBank
         </Link>
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
@@ -100,7 +95,7 @@ const NavBar = (props) => {
           </ul>
           {props.user ? (
             <button onClick={handleLogout} className="mr-lg-5 my-3 my-md-0 btn btn-outline-danger" style={{ fontSize: "1.1rem" }}>
-              Sign out
+              Sign out <i className="fas fa-sign-out-alt ml-2"></i>
             </button>
           ) : null}
         </div>
@@ -115,4 +110,4 @@ const mapStateToProps = (storeState) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps)(NavBar));
+export default connect(mapStateToProps)(NavBar);

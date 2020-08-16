@@ -95,7 +95,7 @@ class ApplyForFD extends React.Component {
               <div className="col-lg-7">
                 <form className="d-flex flex-column align-items-center" onSubmit={this.handleSubmit}>
                   <select
-                    className="custom-select"
+                    className="custom-select custom-select-lg"
                     name="fromAccount"
                     required
                     value={this.state.fromAccount}
@@ -108,7 +108,7 @@ class ApplyForFD extends React.Component {
                   </select>
 
                   <select
-                    className="custom-select my-3"
+                    className="custom-select custom-select-lg my-3"
                     name="scheme"
                     required
                     value={this.state.scheme}
@@ -128,13 +128,13 @@ class ApplyForFD extends React.Component {
                     pattern="\d*"
                     minLength="1"
                     maxLength="10"
-                    className="form-control"
+                    className="form-control form-control-lg"
                     placeholder="FD Amount"
                     required
                     value={this.state.amount}
                     onChange={this.handleChange}
                   />
-                  <button type="submit" className="btn btn-info mt-4">
+                  <button type="submit" className="btn btn-lg btn-outline-info mt-4">
                     {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Proceed"}
                   </button>
                 </form>

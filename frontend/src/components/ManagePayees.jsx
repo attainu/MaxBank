@@ -8,11 +8,11 @@ class ManagePayees extends React.Component {
     return (
       <>
         <div className="bg-light rounded p-3 shadow">
-          {/* <h3 className="text-center text-info mb-4 mt-2">Add Payee</h3> */}
           <AddPayee />
         </div>
         <div className="bg-light rounded p-3 mt-4 shadow">
-          <h3 className="text-center text-info mb-4 mt-2">Payees List</h3>
+          <h3 className="text-center text-info">Payees List</h3>
+          <hr className="" />
           <ViewPayee />
         </div>
       </>

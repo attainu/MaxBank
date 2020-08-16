@@ -22,27 +22,30 @@ class AccountsPage extends React.Component {
                       <div className="list-group shadow">
                         <NavLink
                           exact
-                          className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
+                          className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                           to="/my-accounts"
-                          activeClassName="bg-info text-light text-center"
+                          activeClassName="bg-info text-light"
                         >
-                          My Profile
+                          <i className="fas fa-id-card fa-lg mr-4"></i>
+                          <span style={{ fontSize: "1.2rem" }}>My Profile</span>
                         </NavLink>
                         <NavLink
                           exact
-                          className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
+                          className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                           to="/my-accounts/accounts"
-                          activeClassName="bg-info text-light text-center"
+                          activeClassName="bg-info text-light"
                         >
-                          Accounts
+                          <i className="fas fa-coins fa-lg mr-4"></i>
+                          <span style={{ fontSize: "1.2rem" }}>Accounts</span>
                         </NavLink>
                         <NavLink
                           exact
-                          className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
+                          className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                           to="/my-accounts/deposits"
-                          activeClassName="bg-info text-light text-center"
+                          activeClassName="bg-info text-light"
                         >
-                          Fixed Deposits
+                          <i className="fas fa-piggy-bank fa-lg mr-4"></i>
+                          <span style={{ fontSize: "1.2rem" }}>Fixed_Deposits</span>
                         </NavLink>
                       </div>
                     </div>

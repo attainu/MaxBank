@@ -20,19 +20,22 @@ class CardsPage extends Component {
                     <div className="list-group shadow">
                       <NavLink
                         exact
-                        className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
+                        className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                         to="/cards"
-                        activeClassName="bg-info text-light text-center"
+                        activeClassName="bg-info text-light"
                       >
-                        Cards
+                        <i className="fas fa-credit-card fa-lg mr-4"></i>
+                        <span style={{ fontSize: "1.2rem" }}>Cards</span>
                       </NavLink>
+
                       <NavLink
                         exact
-                        className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
+                        className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                         to="/cards/transactions"
-                        activeClassName="bg-info text-light text-center"
+                        activeClassName="bg-info text-light"
                       >
-                        Transactions
+                        <i className="fas fa-file-invoice-dollar fa-lg ml-1 mr-4"></i>
+                        <span style={{ fontSize: "1.2rem" }}>Transactions</span>
                       </NavLink>
                     </div>
                   </div>

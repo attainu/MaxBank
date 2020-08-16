@@ -53,7 +53,7 @@ class AddPayee extends React.Component {
               <input
                 type="text"
                 name="payeeName"
-                className="form-control"
+                className="form-control form-control-lg"
                 placeholder="Name"
                 required
                 value={this.state.payeeName}
@@ -62,7 +62,7 @@ class AddPayee extends React.Component {
               <input
                 type="text"
                 name="bankName"
-                className="form-control my-3"
+                className="form-control form-control-lg my-3"
                 placeholder="Bank Name"
                 required
                 value={this.state.bankName}
@@ -73,14 +73,14 @@ class AddPayee extends React.Component {
                 name="ifsc"
                 minLength="10"
                 maxLength="10"
-                className="form-control"
+                className="form-control form-control-lg"
                 placeholder="10 digit IFSC"
                 required
                 value={this.state.ifsc}
                 onChange={this.handleChange}
               />
               <p className="text-success lead my-3">{this.state.message}</p>
-              <button type="submit" className="btn btn-info font-weight-bold">
+              <button type="submit" className="btn btn-lg btn-outline-info font-weight-bold">
                 {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Add Payee"}
               </button>
             </form>

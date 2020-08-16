@@ -43,7 +43,7 @@ class Login extends Component {
               <input
                 className="form-control form-control-lg rounded-pill mb-3"
                 onChange={this.handleChange}
-                value={this.state.title}
+                value={this.state.email}
                 type="email"
                 name="email"
                 placeholder="email"
@@ -59,7 +59,13 @@ class Login extends Component {
                 required
               />
               <button type="submit" className="btn btn-lg btn-outline-info my-4 mt-1 rounded-pill btn-block">
-                {this.state.isLoading ? <span className="spinner-border"></span> : "Login"}
+                {this.state.isLoading ? (
+                  <span className="spinner-border"></span>
+                ) : (
+                  <>
+                    Login <i className="fas fa-sign-in-alt ml-3"></i>
+                  </>
+                )}
               </button>
             </div>
           </div>

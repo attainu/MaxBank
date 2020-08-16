@@ -20,28 +20,34 @@ class PaymentsPage extends Component {
                   <div className="list-group shadow">
                     <NavLink
                       exact
-                      className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
+                      className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                       to="/payments"
-                      activeClassName="bg-info text-light text-center"
+                      activeClassName="bg-info text-light"
                     >
-                      Fund Transfer
-                    </NavLink>
-                    <NavLink
-                      exact
-                      className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
-                      to="/payments/manage-payee"
-                      activeClassName="bg-info text-light text-center"
-                    >
-                      Manage Payee
+                      <i className="fas fa-hand-holding-usd fa-lg mr-4"></i>
+                      <span style={{ fontSize: "1.2rem" }}>Fund Transfer</span>
                     </NavLink>
 
                     <NavLink
                       exact
-                      className="list-group-item text-decoration-none font-weight-bold px-5 py-3"
-                      to="/payments/recharge"
-                      activeClassName="bg-info text-light text-center"
+                      className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
+                      to="/payments/manage-payee"
+                      activeClassName="bg-info text-light"
                     >
-                      Recharge
+                      <i className="fas fa-users-cog fa-lg mr-4"></i>
+                      <span style={{ fontSize: "1.2rem" }}>Manage Payee</span>
+                    </NavLink>
+
+                    <NavLink
+                      exact
+                      className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
+                      to="/payments/recharge"
+                      activeClassName="bg-info text-light"
+                    >
+                      <i className="fas fa-mobile-alt fa-lg ml-2 mr-3"></i>
+                      <span style={{ fontSize: "1.2rem" }} className="ml-3">
+                        Recharge
+                      </span>
                     </NavLink>
                   </div>
                 </div>

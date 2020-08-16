@@ -41,9 +41,10 @@ class MobileRecharge extends React.Component {
                   id="prepaid"
                   value="prepaid"
                   checked={this.state.planType === "prepaid"}
+                  style={{ width: "20px", height: "20px" }}
                   onChange={this.handleChange}
                 />
-                <label className="form-check-label" htmlFor="prepaid">
+                <label className="form-check-label" htmlFor="prepaid" style={{ fontSize: "1.2rem" }}>
                   Prepaid
                 </label>
               </div>
@@ -55,61 +56,60 @@ class MobileRecharge extends React.Component {
                   id="postpaid"
                   value="postpaid"
                   checked={this.state.planType === "postpaid"}
+                  style={{ width: "20px", height: "20px" }}
                   onChange={this.handleChange}
                 />
-                <label className="form-check-label" htmlFor="postpaid">
+                <label className="form-check-label" htmlFor="postpaid" style={{ fontSize: "1.2rem" }}>
                   Postpaid
                 </label>
               </div>
-              <div className="form-group mt-4 w-lg-50">
-                <input
-                  type="text"
-                  name="mobileNumber"
-                  pattern="\d*"
-                  minLength="10"
-                  maxLength="10"
-                  className="form-control"
-                  placeholder="10 digit mobile number"
-                  required
-                  value={this.state.mobileNumber}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <select
-                  className="custom-select"
-                  name="operator"
-                  required
-                  value={this.state.operator}
-                  onChange={this.handleChange}
-                >
-                  <option value="" disabled hidden>
-                    Select Operator
-                  </option>
-                  <option value="Jio">JIO</option>
-                  <option value="Airtel">AIRTEL</option>
-                  <option value="BSNL">BSNL</option>
-                  <option value="Idea">IDEA</option>
-                  <option value="Vodafone">VODAFONE</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="amount"
-                  pattern="\d*"
-                  maxLength="3"
-                  className="form-control"
-                  placeholder="Amount"
-                  required
-                  value={this.state.amount}
-                  onChange={this.handleChange}
-                />
-              </div>
+
+              <input
+                type="text"
+                name="mobileNumber"
+                pattern="\d*"
+                minLength="10"
+                maxLength="10"
+                className="form-control form-control-lg mt-3"
+                placeholder="10 digit mobile number"
+                required
+                value={this.state.mobileNumber}
+                onChange={this.handleChange}
+              />
+
+              <select
+                className="custom-select custom-select-lg my-3"
+                name="operator"
+                required
+                value={this.state.operator}
+                onChange={this.handleChange}
+              >
+                <option value="" disabled hidden>
+                  Select Operator
+                </option>
+                <option value="Jio">JIO</option>
+                <option value="Airtel">AIRTEL</option>
+                <option value="BSNL">BSNL</option>
+                <option value="Idea">IDEA</option>
+                <option value="Vodafone">VODAFONE</option>
+              </select>
+
+              <input
+                type="text"
+                name="amount"
+                pattern="\d*"
+                maxLength="3"
+                className="form-control form-control-lg"
+                placeholder="Amount"
+                required
+                value={this.state.amount}
+                onChange={this.handleChange}
+              />
+
               <p className="text-danger lead m-2">{this.state.errorMessage}</p>
-              <div className="w-100 d-flex justify-content-center">
+              <div className="w-100 d-flex justify-content-center mt-4">
                 {!this.state.allOk ? (
-                  <button type="submit" className="btn btn-info">
+                  <button type="submit" className="btn btn-lg btn-outline-info px-5">
                     Proceed
                   </button>
                 ) : (
