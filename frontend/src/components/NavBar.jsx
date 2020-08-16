@@ -84,11 +84,11 @@ const NavBar = (props) => {
             </li>
             <li className="nav-item mx-lg-5 mx-md-3 mb-2 mb-md-0 d-flex align-items-center">
               <NavLink
-                to="/help"
+                to="/contact-us"
                 className="text-decoration-none text-light"
                 activeClassName="border-bottom font-weight-bold font-italic"
               >
-                Help
+                Contact Us
               </NavLink>
             </li>
           </ul>

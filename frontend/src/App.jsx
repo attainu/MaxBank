@@ -12,6 +12,7 @@ import AccountsPage from "./pages/AccountsPage";
 import CardsPage from "./pages/CardsPage";
 import PaymentsPage from "./pages/PaymentsPage";
 import BranchInfo from "./pages/BranchInfo";
+import ContactUsPage from "./pages/ContactUsPage";
 
 import NavBar from "./components/NavBar";
 
@@ -30,6 +31,7 @@ class App extends React.Component {
           <Route path="/payments" component={PaymentsPage} />
 
           <Route exact path="/branch-info" component={BranchInfo} />
+          <Route exact path="/contact-us" component={ContactUsPage} />
 
           <Route component={NotFound} />
         </Switch>

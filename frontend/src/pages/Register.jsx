@@ -118,6 +118,8 @@ class Register extends Component {
                 placeholder="confirm password"
                 required
               />
+              <small class="form-text text-muted ml-3">Your password must be atleat 6 characters long.</small>
+
               <button type="submit" className="btn btn-lg btn-outline-info my-4 mt-1 rounded-pill btn-block">
                 {this.state.isLoading ? <span className="spinner-border"></span> : "Sign Up"}
               </button>

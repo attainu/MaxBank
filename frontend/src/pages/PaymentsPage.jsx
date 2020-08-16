@@ -12,7 +12,7 @@ class PaymentsPage extends Component {
 
     if (user) {
       return (
-        <div className="PaymentsPage pt-5">
+        <div className="PaymentsPage">
           <div className="container">
             <Router>
               <div className="row justify-content-around">
