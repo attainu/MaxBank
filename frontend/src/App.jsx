@@ -51,8 +51,4 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (storeState) => {
-  return { registered: storeState.userState.registered };
-};
-
-export default connect(mapStateToProps, { getCustomerData, setUser })(App);
+export default connect(null, { getCustomerData, setUser })(App);

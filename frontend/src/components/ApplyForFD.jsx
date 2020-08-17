@@ -85,7 +85,7 @@ class ApplyForFD extends React.Component {
 
     return (
       <>
-        <a className="btn btn-outline-info" data-toggle="collapse" href="#SATcollapse">
+        <a className="btn btn-outline-secondary" data-toggle="collapse" href="#SATcollapse">
           Apply for a new FD
         </a>
         <p className="mb-3"></p>
@@ -134,7 +134,7 @@ class ApplyForFD extends React.Component {
                     value={this.state.amount}
                     onChange={this.handleChange}
                   />
-                  <button type="submit" className="btn btn-lg btn-outline-info mt-4">
+                  <button type="submit" className="btn btn-lg btn-outline-dark mt-4">
                     {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Proceed"}
                   </button>
                 </form>

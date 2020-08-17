@@ -98,7 +98,7 @@ class ContactUsForm extends Component {
               </div>
               <div className="row justify-content-center">
                 <div className="col-md-6">
-                  <button className="btn btn-outline-info btn-block" type="submit">
+                  <button className="btn btn-outline-dark btn-block" type="submit">
                     Submit
                   </button>
                 </div>

@@ -109,7 +109,7 @@ class MobileRecharge extends React.Component {
               <p className="text-danger lead m-2">{this.state.errorMessage}</p>
               <div className="w-100 d-flex justify-content-center mt-4">
                 {!this.state.allOk ? (
-                  <button type="submit" className="btn btn-lg btn-outline-info px-5">
+                  <button type="submit" className="btn btn-lg btn-outline-dark px-5">
                     Proceed
                   </button>
                 ) : (

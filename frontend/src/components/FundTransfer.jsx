@@ -125,7 +125,7 @@ class FundTransfer extends React.Component {
                     value={this.state.remarks}
                     onChange={this.handleChange}
                   />
-                  <button type="submit" className="btn btn-lg btn-outline-info mt-4 mb-3">
+                  <button type="submit" className="btn btn-lg btn-outline-dark mt-4 mb-3">
                     {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Transfer"}
                   </button>
                 </form>

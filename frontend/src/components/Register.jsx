@@ -123,7 +123,7 @@ class Register extends Component {
               />
               <small className="form-text text-muted ml-3">Your password must be atleat 6 characters long.</small>
 
-              <button type="submit" className="btn btn-lg btn-outline-info my-4 mt-1 rounded-pill btn-block">
+              <button type="submit" className="btn btn-lg btn-outline-dark my-4 mt-1 rounded-pill btn-block">
                 {this.state.isLoading ? (
                   <span className="spinner-border"></span>
                 ) : (

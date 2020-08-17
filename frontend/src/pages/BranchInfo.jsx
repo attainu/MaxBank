@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import { getBranchInfo } from "../redux/actions/branchActions";
+import searchingImg from "../images/searching.svg";
 
 const BranchInfo = (props) => {
   const [ifsc, setIfsc] = useState("");
@@ -31,7 +32,7 @@ const BranchInfo = (props) => {
             {props.isFetchingBranch ? (
               <span className="spinner-border text-info"></span>
             ) : (
-              <button type="submit" className="btn btn-lg btn-outline-info rounded-pill btn-block">
+              <button type="submit" className="btn btn-lg btn-outline-dark rounded-pill btn-block">
                 Search
               </button>
             )}
@@ -75,7 +76,9 @@ const BranchInfo = (props) => {
               </table>
             </div>
           </div>
-        ) : null}
+        ) : (
+          <img src={searchingImg} alt="search" style={{ height: "50vh", opacity: "0.9" }} className="mt-5 pt-5" />
+        )}
       </div>
     </div>
   );

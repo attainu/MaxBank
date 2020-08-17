@@ -22,7 +22,7 @@ class PaymentsPage extends Component {
                       exact
                       className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                       to="/payments"
-                      activeClassName="bg-info text-light"
+                      activeClassName="bg-dark text-light"
                     >
                       <i className="fas fa-hand-holding-usd fa-lg mr-4"></i>
                       <span style={{ fontSize: "1.2rem" }}>Fund Transfer</span>
@@ -32,7 +32,7 @@ class PaymentsPage extends Component {
                       exact
                       className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                       to="/payments/manage-payee"
-                      activeClassName="bg-info text-light"
+                      activeClassName="bg-dark text-light"
                     >
                       <i className="fas fa-users-cog fa-lg mr-4"></i>
                       <span style={{ fontSize: "1.2rem" }}>Manage Payee</span>
@@ -42,7 +42,7 @@ class PaymentsPage extends Component {
                       exact
                       className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                       to="/payments/recharge"
-                      activeClassName="bg-info text-light"
+                      activeClassName="bg-dark text-light"
                     >
                       <i className="fas fa-mobile-alt fa-lg ml-2 mr-3"></i>
                       <span style={{ fontSize: "1.2rem" }} className="ml-3">

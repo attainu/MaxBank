@@ -15,7 +15,7 @@ class Recharge extends React.Component {
               exact
               className="list-group-item flex-fill  text-decoration-none font-weight-bold px-5 py-3 text-center"
               to="/payments/recharge"
-              activeClassName="bg-dark text-light"
+              activeClassName="bg-secondary text-light"
             >
               Mobile Recharge
             </NavLink>
@@ -23,7 +23,7 @@ class Recharge extends React.Component {
               exact
               className="list-group-item flex-fill text-decoration-none font-weight-bold px-5 py-3 text-center"
               to="/payments/recharge/dth"
-              activeClassName="bg-dark text-light"
+              activeClassName="bg-secondary text-light"
             >
               DTH Recharge
             </NavLink>
@@ -32,7 +32,7 @@ class Recharge extends React.Component {
               exact
               className="list-group-item flex-fill text-decoration-none font-weight-bold px-5 py-3 text-center"
               to="/payments/recharge/metro"
-              activeClassName="bg-dark text-light"
+              activeClassName="bg-secondary text-light"
             >
               Metro Recharge
             </NavLink>

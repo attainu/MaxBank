@@ -58,7 +58,7 @@ class Login extends Component {
                 placeholder="password"
                 required
               />
-              <button type="submit" className="btn btn-lg btn-outline-info my-4 mt-1 rounded-pill btn-block">
+              <button type="submit" className="btn btn-lg btn-outline-dark my-4 mt-1 rounded-pill btn-block">
                 {this.state.isLoading ? (
                   <span className="spinner-border"></span>
                 ) : (

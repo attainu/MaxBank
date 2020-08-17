@@ -14,7 +14,7 @@ const NavBar = (props) => {
   return (
     <header className="NavBar">
       <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <Link to="/" className="navbar-brand ml-lg-5 pl-lg-4" style={{ color: "red", fontSize: "2.25rem" }}>
+        <Link to="/" className="navbar-brand ml-lg-5 pl-lg-4" style={{ color: "tomato", fontSize: "2.25rem" }}>
           <i className="fab fa-maxcdn"></i>axBank
         </Link>
 

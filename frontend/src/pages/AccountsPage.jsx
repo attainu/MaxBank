@@ -24,7 +24,7 @@ class AccountsPage extends React.Component {
                           exact
                           className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                           to="/my-accounts"
-                          activeClassName="bg-info text-light"
+                          activeClassName="bg-dark text-light"
                         >
                           <i className="fas fa-id-card fa-lg mr-4"></i>
                           <span style={{ fontSize: "1.2rem" }}>My Profile</span>
@@ -33,7 +33,7 @@ class AccountsPage extends React.Component {
                           exact
                           className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                           to="/my-accounts/accounts"
-                          activeClassName="bg-info text-light"
+                          activeClassName="bg-dark text-light"
                         >
                           <i className="fas fa-coins fa-lg mr-4"></i>
                           <span style={{ fontSize: "1.2rem" }}>Accounts</span>
@@ -42,7 +42,7 @@ class AccountsPage extends React.Component {
                           exact
                           className="list-group-item text-decoration-none d-flex align-items-center px-5 py-3"
                           to="/my-accounts/deposits"
-                          activeClassName="bg-info text-light"
+                          activeClassName="bg-dark text-light"
                         >
                           <i className="fas fa-piggy-bank fa-lg mr-4"></i>
                           <span style={{ fontSize: "1.2rem" }}>Fixed_Deposits</span>

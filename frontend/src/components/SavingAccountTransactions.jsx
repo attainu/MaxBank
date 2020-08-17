@@ -7,7 +7,7 @@ class SavingAccountTransactions extends React.Component {
 
     return (
       <>
-        <a className="btn btn-outline-info" data-toggle="collapse" href="#SATcollapse">
+        <a className="btn btn-outline-secondary" data-toggle="collapse" href="#SATcollapse">
           Saving Account Transactions
         </a>
         <p className="mb-3"></p>
