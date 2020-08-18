@@ -10,8 +10,8 @@ class MobileRecharge extends React.Component {
       operator: "",
       mobileNumber: "",
       amount: "",
-      errorMessage: "",
       allOk: false,
+      image: "",
     };
   }
 
@@ -21,15 +21,35 @@ class MobileRecharge extends React.Component {
     this.setState({ [name]: value });
   };
 
+  handleOperator = (event) => {
+    const value = event.target.value;
+    this.setState({ operator: value });
+
+    let imageUrl = "";
+    if (value === "Jio") {
+      imageUrl = "https://assetscdn1.paytm.com/images/catalog/operators/84x84/1548842919961.png";
+    } else if (value === "Airtel") {
+      imageUrl = "https://assetscdn1.paytm.com/images/catalog/operators/84x84/1555311132380.png";
+    } else if (value === "BSNL") {
+      imageUrl = "https://assetscdn1.paytm.com/images/catalog/operators/84x84/1555325713574.png";
+    } else if (value === "Idea" || value === "Vodafone") {
+      imageUrl = "https://assetscdn1.paytm.com/images/catalog/operators/84x84/1589949718136.png";
+    }
+    this.setState({ image: imageUrl });
+  };
+
   submitHandler = (event) => {
     event.preventDefault();
-    // this.setState({ errorMessage: "err" });
     this.setState({ allOk: true });
+  };
+
+  handleReset = () => {
+    this.setState({ planType: "prepaid", operator: "", mobileNumber: "", amount: "", allOk: false, image: "" });
   };
 
   render() {
     return (
-      <div className="container-fluid bg-light rounded px-3 pt-1 pb-3 mt-3">
+      <div className="container-fluid bg-light rounded px-3 pt-1 pb-4 mt-3">
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <form className="p-3" onSubmit={this.submitHandler}>
@@ -82,7 +102,7 @@ class MobileRecharge extends React.Component {
                 name="operator"
                 required
                 value={this.state.operator}
-                onChange={this.handleChange}
+                onChange={this.handleOperator}
               >
                 <option value="" disabled hidden>
                   Select Operator
@@ -98,6 +118,7 @@ class MobileRecharge extends React.Component {
                 type="text"
                 name="amount"
                 pattern="\d*"
+                minLength="2"
                 maxLength="3"
                 className="form-control form-control-lg"
                 placeholder="Amount"
@@ -106,7 +127,6 @@ class MobileRecharge extends React.Component {
                 onChange={this.handleChange}
               />
 
-              <p className="text-danger lead m-2">{this.state.errorMessage}</p>
               <div className="w-100 d-flex justify-content-center mt-4">
                 {!this.state.allOk ? (
                   <button type="submit" className="btn btn-lg btn-outline-dark px-5">
@@ -118,6 +138,8 @@ class MobileRecharge extends React.Component {
                       name: `${this.state.operator} ${this.state.planType} ${this.state.mobileNumber}`,
                       price: `${Number(this.state.amount)}`,
                     }}
+                    reset={this.handleReset}
+                    image={this.state.image}
                   />
                 )}
               </div>

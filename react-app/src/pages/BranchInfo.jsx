@@ -30,7 +30,9 @@ const BranchInfo = (props) => {
           </div>
           <div className="col-lg-4 d-flex justify-content-center align-items-center mt-3 mt-lg-0">
             {props.isFetchingBranch ? (
-              <span className="spinner-border text-info"></span>
+              <div className="mx-4">
+                <span className="spinner-border"></span>
+              </div>
             ) : (
               <button type="submit" className="btn btn-lg btn-outline-dark rounded-pill btn-block">
                 Search

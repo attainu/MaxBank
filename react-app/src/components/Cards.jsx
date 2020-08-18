@@ -71,7 +71,7 @@ class Cards extends React.Component {
             <hr className="mb-5" />
           </>
         ) : (
-          <h4 className="mb-5 text-danger">No Card linked to your account!</h4>
+          <h4 className="my-5 text-danger text-center">No Card is linked to your account!</h4>
         )}
 
         <>
@@ -86,20 +86,20 @@ class Cards extends React.Component {
                   </div>
                 </div>
                 <div className="col-lg-5 d-flex flex-column justify-content-center align-items-center">
-                  <h5 className="text-info">Balance Left:</h5>
-                  <h5 className="text-danger">₹{card.balance}</h5>
+                  <h5 className="text-info lead">Balance Left:</h5>
+                  <h5 className="text-dark lead">₹{card.balance}</h5>
                 </div>
               </div>
-              <div className="container d-flex justify-content-center my-3">
-                <button className="btn btn-danger" onClick={this.deleteCard}>
-                  {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Block Card"}
+              <div className="container d-flex justify-content-center my-4">
+                <button className="btn btn-lg btn-outline-danger" onClick={this.deleteCard}>
+                  {this.state.isLoading ? <span className="spinner-border"></span> : "Block Card"}
                 </button>
               </div>
             </>
           ) : (
-            <div className="conatiner d-flex justify-content-center mb-2">
-              <button className="btn btn-success" onClick={this.requestNewCard}>
-                {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Request for a New Card"}
+            <div className="conatiner d-flex justify-content-center mb-5">
+              <button className="btn btn-lg btn-outline-success" onClick={this.requestNewCard}>
+                {this.state.isLoading ? <span className="spinner-border"></span> : "Request for a New Card"}
               </button>
             </div>
           )}

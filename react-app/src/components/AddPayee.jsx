@@ -80,8 +80,8 @@ class AddPayee extends React.Component {
                 onChange={this.handleChange}
               />
               <p className="text-success lead my-3">{this.state.message}</p>
-              <button type="submit" className="btn btn-lg btn-outline-dark font-weight-bold">
-                {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Add Payee"}
+              <button type="submit" className="btn btn-lg btn-outline-dark px-5">
+                {this.state.isLoading ? <span className="spinner-border"></span> : "Add Payee"}
               </button>
             </form>
           </div>

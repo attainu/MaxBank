@@ -6,16 +6,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAhHYw5IjygrnYi6FY6YbxBMJyVJWeaTw0",
-  authDomain: "maxbank-98.firebaseapp.com",
-  databaseURL: "https://maxbank-98.firebaseio.com",
-  projectId: "maxbank-98",
-  storageBucket: "maxbank-98.appspot.com",
-  messagingSenderId: "283085309999",
-  appId: "1:283085309999:web:96dcc12a2728c79e3fdeda",
-};
+import { firebaseConfig } from "./config";
 
 // Initialize Firebase
 const myFirebase = firebase.initializeApp(firebaseConfig);

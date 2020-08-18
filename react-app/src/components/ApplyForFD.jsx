@@ -93,7 +93,7 @@ class ApplyForFD extends React.Component {
           <div className="container-fluid mb-3">
             <div className="row justify-content-center">
               <div className="col-lg-7">
-                <form className="d-flex flex-column align-items-center" onSubmit={this.handleSubmit}>
+                <form className="d-flex flex-column align-items-center mt-2" onSubmit={this.handleSubmit}>
                   <select
                     className="custom-select custom-select-lg"
                     name="fromAccount"
@@ -134,8 +134,8 @@ class ApplyForFD extends React.Component {
                     value={this.state.amount}
                     onChange={this.handleChange}
                   />
-                  <button type="submit" className="btn btn-lg btn-outline-dark mt-4">
-                    {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Proceed"}
+                  <button type="submit" className="btn btn-lg btn-outline-dark mt-4 mb-3">
+                    {this.state.isLoading ? <span className="spinner-border"></span> : "Proceed"}
                   </button>
                 </form>
               </div>

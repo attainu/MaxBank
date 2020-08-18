@@ -2,6 +2,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 import { SET_BRANCH, TOGGLE_BRANCH_FETCHING_STATE } from "../actionTypes";
+import config from "../../config";
 
 export const getBranchInfo = (searchQuery) => async (dispatch) => {
   try {
@@ -10,7 +11,7 @@ export const getBranchInfo = (searchQuery) => async (dispatch) => {
 
     const { data } = await axios(`https://cors-anywhere.herokuapp.com/https://ifsc.datayuge.com/api/v1/${searchQuery}`, {
       headers: {
-        "DY-X-Authorization": "69bf572f41659f071b1dbf6346c69f4e9af715ec",
+        "DY-X-Authorization": config.ifscApiKey,
       },
     });
 

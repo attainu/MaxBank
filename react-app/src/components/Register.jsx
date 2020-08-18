@@ -51,7 +51,7 @@ class Register extends Component {
                       .replace(/[^\dA-Z]/g, "")
                       .replace(/(.{4})/g, "$1 ")
                       .trim(),
-                    balance: 100000,
+                    balance: 250000,
                     pan: null,
                     openingDate: new Date().toString().slice(4, -40),
                   },

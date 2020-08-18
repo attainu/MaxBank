@@ -1,29 +1,33 @@
 import React from "react";
 import { connect } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
+import Swal from "sweetalert2";
 
 import { auth } from "../firebase";
 import { getCustomerData, updateCustomerData } from "../redux/actions/customerActions";
+
+import config from "../config";
 
 class Buy extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       receipt: null,
+      isLoading: false,
     };
   }
 
   makePayment = async (token) => {
+    this.setState({ isLoading: true });
     const body = {
       token,
       product: this.props.product,
     };
-
     const headers = {
       "Content-Type": "application/json",
     };
 
-    await fetch(`http://localhost:8282/payment`, {
+    await fetch(`/api`, {
       method: "POST",
       headers,
       body: JSON.stringify(body),
@@ -33,6 +37,7 @@ class Buy extends React.Component {
         return data;
       })
       .then((data) => {
+        this.setState({ isLoading: false });
         this.setState({ receipt: data.receipt_url });
 
         if (this.props.customerData.card) {
@@ -60,33 +65,60 @@ class Buy extends React.Component {
         }
       })
       .catch((error) => {
-        alert(error);
-        // alert("Unexpected error occurred!\nDeducted amount will be refunded!");
+        this.setState({ isLoading: false });
+        Swal.fire("", "We can't process this transaction right now. Please try later.", "error");
       });
   };
 
   render() {
     const { name, price } = this.props.product;
+    const { isLoading, receipt } = this.state;
 
-    if (!this.state.receipt) {
-      return (
-        <StripeCheckout
-          stripeKey="pk_test_51HCmJtFqMX5kB68LzQsHtBcokgPTCcU1f9Q3fZrTFlLYzmxYeum1YhvorPhDYokxtQwdxYa8skpAODJO8FsKEhsM00QDeZbkBW"
-          token={this.makePayment}
-          name={name}
-          amount={price * 100}
-          currency="INR"
-          // shippingAddress
-          locale="en"
-          allowRememberMe={false}
-        />
-      );
+    if (isLoading) {
+      return <span className="spinner-border"></span>;
     } else {
-      return (
-        <a href={this.state.receipt} target="_blank" rel="noopener noreferrer">
-          Show Receipt
-        </a>
-      );
+      if (!receipt) {
+        return (
+          <StripeCheckout
+            stripeKey={config.stripePublishKey}
+            token={this.makePayment}
+            name={name}
+            amount={price * 100}
+            currency="INR"
+            // shippingAddress
+            locale="en"
+            allowRememberMe={false}
+            image={this.props.image}
+          >
+            <button id="pay-with-card" className="btn btn-lg btn-outline-dark px-5">
+              Proceed
+            </button>
+          </StripeCheckout>
+        );
+      } else {
+        return (
+          <div>
+            <a
+              href={this.state.receipt}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-lg btn-outline-success mr-5"
+            >
+              Show Receipt
+            </a>
+            <button className="btn btn-lg btn-outline-danger" onClick={this.props.reset}>
+              Reset
+            </button>
+          </div>
+        );
+      }
+    }
+  }
+
+  componentDidMount() {
+    const payBtn = document.getElementById("pay-with-card");
+    if (payBtn) {
+      payBtn.click();
     }
   }
 }

@@ -10,7 +10,7 @@ class FundTransfer extends React.Component {
     const { name, email, customerId, contactNumber, address, nominee } = this.props.customerData;
 
     return (
-      <div className="container px-3 py-4 bg-light rounded shadow">
+      <div className="container px-3 py-5 bg-light rounded shadow">
         <h1 className="display-4 text-center">{name}</h1>
         <p className="lead text-center mb-5">{email}</p>
         <div className="row justify-content-center">
