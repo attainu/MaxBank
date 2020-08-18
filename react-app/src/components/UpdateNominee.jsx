@@ -39,7 +39,7 @@ class UpdateNominee extends React.Component {
   render() {
     return (
       <div>
-        <button className="btn btn-sm btn-warning" data-toggle="modal" data-target="#updateNominee">
+        <button className="btn btn-sm btn-outline-warning" data-toggle="modal" data-target="#updateNominee">
           {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Update"}
         </button>
 

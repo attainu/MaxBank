@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import { auth } from "../firebase";
 import { getCustomerData, updateCustomerData } from "../redux/actions/customerActions";
 
+import VisaCard from "./VisaCard";
+
 class Cards extends React.Component {
   constructor(props) {
     super(props);
@@ -78,16 +80,14 @@ class Cards extends React.Component {
           {card ? (
             <>
               <div className="row justify-content-center">
-                <div className="col-lg-5 mb-4">
-                  <div className="container border border-success rounded shadow-sm pt-3">
-                    <p className="lead text-center">MaxBank VISA Credit</p>
-                    <hr />
-                    <p className="lead text-center">{card.cardNumber}</p>
+                <div className="col-lg-6 mb-4 p-0">
+                  <div className="d-flex justify-content-center">
+                    <VisaCard />
                   </div>
                 </div>
                 <div className="col-lg-5 d-flex flex-column justify-content-center align-items-center">
                   <h5 className="text-info lead">Balance Left:</h5>
-                  <h5 className="text-dark lead">₹{card.balance}</h5>
+                  <h5 className="lead">₹{card.balance}</h5>
                 </div>
               </div>
               <div className="container d-flex justify-content-center my-4">

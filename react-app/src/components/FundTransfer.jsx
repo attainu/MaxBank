@@ -135,7 +135,7 @@ class FundTransfer extends React.Component {
             <div className="d-flex flex-column align-items-center">
               <h4 className="text-danger mb-3">No Payee in your account!</h4>
               <h5 className="text-info text-center">You can transfer the funds only to the added payee.</h5>
-              <Link className="btn btn-info mt-3" to="/payments/manage-payee">
+              <Link className="btn btn-lg btn-outline-dark mt-3" to="/payments/manage-payee">
                 Add Payee
               </Link>
             </div>

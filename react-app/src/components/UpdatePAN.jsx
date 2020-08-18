@@ -47,7 +47,7 @@ class UpdatePAN extends React.Component {
   render() {
     return (
       <div>
-        <button className="btn btn-sm btn-warning" onClick={this.handleUpdate}>
+        <button className="btn btn-sm btn-outline-warning" onClick={this.handleUpdate}>
           {this.state.isLoading ? <span className="spinner-border spinner-border-sm"></span> : "Update"}
         </button>
       </div>
