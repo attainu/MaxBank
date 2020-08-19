@@ -38,30 +38,37 @@ class Buy extends React.Component {
       })
       .then((data) => {
         this.setState({ isLoading: false });
-        this.setState({ receipt: data.receipt_url });
 
-        if (this.props.customerData.card) {
-          const transaction = {
-            id: data.balance_transaction,
-            amount: data.amount / 100,
-            // billing_details: data.billing_details,
-            time: new Date().toString().slice(4, -31),
-            description: data.description,
-            receipt: data.receipt_url,
-          };
+        if (data.status) {
+          if (data.status === "succeeded") {
+            this.setState({ receipt: data.receipt_url });
 
-          const updatedData = {
-            card: {
-              balance: this.props.customerData.card.balance - transaction.amount,
-            },
-            transactions: [...this.props.customerData.transactions, transaction],
-          };
+            if (this.props.customerData.card) {
+              const transaction = {
+                id: data.balance_transaction,
+                amount: data.amount / 100,
+                // billing_details: data.billing_details,
+                time: new Date().toString().slice(4, -31),
+                description: data.description,
+                receipt: data.receipt_url,
+              };
 
-          this.props.updateCustomerData(auth.currentUser.uid, updatedData);
-          const getUpdatedData = () => {
-            this.props.getCustomerData(auth.currentUser.uid);
-          };
-          setTimeout(getUpdatedData, 1000);
+              const updatedData = {
+                card: {
+                  balance: this.props.customerData.card.balance - transaction.amount,
+                },
+                transactions: [...this.props.customerData.transactions, transaction],
+              };
+
+              this.props.updateCustomerData(auth.currentUser.uid, updatedData);
+              const getUpdatedData = () => {
+                this.props.getCustomerData(auth.currentUser.uid);
+              };
+              setTimeout(getUpdatedData, 1000);
+            }
+          }
+        } else {
+          Swal.fire(data.code, data.raw.message, "error");
         }
       })
       .catch((error) => {

@@ -40,25 +40,41 @@ class Login extends Component {
         <div className="container-fluid">
           <div className="row justify-content-center">
             <div className="col-md-10">
-              <input
-                className="form-control form-control-lg rounded-pill mb-3"
-                onChange={this.handleChange}
-                value={this.state.email}
-                type="email"
-                name="email"
-                placeholder="email"
-                required
-              />
-              <input
-                className="form-control form-control-lg rounded-pill"
-                onChange={this.handleChange}
-                value={this.state.password}
-                type="password"
-                name="password"
-                placeholder="password"
-                required
-              />
-              <button type="submit" className="btn btn-lg btn-outline-dark my-4 mt-1 rounded-pill btn-block">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i className="fas fa-envelope fa-lg"></i>
+                  </div>
+                </div>
+                <input
+                  className="form-control form-control-lg"
+                  onChange={this.handleChange}
+                  value={this.state.email}
+                  type="email"
+                  name="email"
+                  placeholder="email"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i className="fas fa-key fa-lg"></i>
+                  </div>
+                </div>
+                <input
+                  className="form-control form-control-lg"
+                  onChange={this.handleChange}
+                  value={this.state.password}
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  required
+                />
+              </div>
+
+              <button type="submit" className="btn btn-lg btn-outline-dark my-4 mt-1 btn-block">
                 {this.state.isLoading ? (
                   <span className="spinner-border"></span>
                 ) : (
@@ -71,7 +87,7 @@ class Login extends Component {
           </div>
         </div>
 
-        <p>
+        <p className="mt-2">
           Don't have an account?
           <Link to="/register"> Register</Link>
         </p>

@@ -24,6 +24,7 @@ class UpdateAddress extends React.Component {
       title: "Enter your Address",
       input: "textarea",
       showCancelButton: true,
+      cancelButtonColor: "#d33",
       inputValidator: (value) => {
         if (!value) {
           return "Enter your Address!";

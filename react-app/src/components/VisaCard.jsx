@@ -5,7 +5,7 @@ import "../styles/VisaCard.css";
 
 const VisaCard = ({ customerData }) => {
   return (
-    <div className="card">
+    <div className="visacard">
       <div className="card__front card__part">
         <span style={{ color: "tomato", fontSize: "1.6rem" }} className="card__front-square card__square">
           <i className="fab fa-maxcdn"></i>axBank

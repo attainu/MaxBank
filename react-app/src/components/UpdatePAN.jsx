@@ -24,6 +24,7 @@ class UpdatePAN extends React.Component {
       title: "Enter your PAN",
       input: "text",
       showCancelButton: true,
+      cancelButtonColor: "#d33",
       inputValidator: (value) => {
         if (!value) {
           return "Enter your PAN!";

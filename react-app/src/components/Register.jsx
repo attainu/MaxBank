@@ -85,45 +85,77 @@ class Register extends Component {
         <div className="container-fluid">
           <div className="row justify-content-center">
             <div className="col-md-10">
-              <input
-                className="form-control form-control-lg rounded-pill mb-3"
-                onChange={this.handleChange}
-                value={this.state.username}
-                type="text"
-                name="username"
-                placeholder="name"
-                required
-              />
-              <input
-                className="form-control form-control-lg rounded-pill mb-3"
-                onChange={this.handleChange}
-                value={this.state.email}
-                type="email"
-                name="email"
-                placeholder="email"
-                required
-              />
-              <input
-                className="form-control form-control-lg rounded-pill mb-3"
-                onChange={this.handleChange}
-                value={this.state.password}
-                type="password"
-                name="password"
-                placeholder="password"
-                required
-              />
-              <input
-                className="form-control form-control-lg rounded-pill"
-                onChange={this.handleChange}
-                value={this.state.confirmPassword}
-                type="password"
-                name="confirmPassword"
-                placeholder="confirm password"
-                required
-              />
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i className="fas fa-user fa-lg"></i>
+                  </div>
+                </div>
+                <input
+                  className="form-control form-control-lg"
+                  onChange={this.handleChange}
+                  value={this.state.username}
+                  type="text"
+                  name="username"
+                  placeholder="name"
+                  required
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i className="fas fa-envelope fa-lg"></i>
+                  </div>
+                </div>
+                <input
+                  className="form-control form-control-lg"
+                  onChange={this.handleChange}
+                  value={this.state.email}
+                  type="email"
+                  name="email"
+                  placeholder="email"
+                  required
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i className="fas fa-key fa-lg"></i>
+                  </div>
+                </div>
+                <input
+                  className="form-control form-control-lg"
+                  onChange={this.handleChange}
+                  value={this.state.password}
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i className="fas fa-key fa-lg"></i>
+                  </div>
+                </div>
+                <input
+                  className="form-control form-control-lg"
+                  onChange={this.handleChange}
+                  value={this.state.confirmPassword}
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="confirm password"
+                  required
+                />
+              </div>
+
               <small className="form-text text-muted ml-3">Your password must be atleat 6 characters long.</small>
 
-              <button type="submit" className="btn btn-lg btn-outline-dark my-4 mt-1 rounded-pill btn-block">
+              <button type="submit" className="btn btn-lg btn-outline-dark my-4 mt-1 btn-block">
                 {this.state.isLoading ? (
                   <span className="spinner-border"></span>
                 ) : (

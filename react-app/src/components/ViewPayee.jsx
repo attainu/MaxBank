@@ -39,7 +39,6 @@ class ViewPayee extends React.Component {
               </table>
             ) : (
               <>
-                <hr className="my-2" />
                 <h4 className="text-warning text-center">You have't added any payee!</h4>
               </>
             )}

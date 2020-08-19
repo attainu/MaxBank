@@ -5,11 +5,11 @@ const Address = () => {
     <div className="container py-4">
       <div className="row">
         <div className="col-lg-4 text-center my-auto">
-          <h2>Address</h2>
+          <h3>Corporate Office</h3>
           <hr />
-          <p className="mt-3">6, Sansad Marg,</p>
-          <p>Sansad Marg Area,</p>
-          <p>New Delhi, Delhi 110001</p>
+          <p className="mt-3 lead">6, Sansad Marg,</p>
+          <p className="lead">Sansad Marg Area,</p>
+          <p className="lead">New Delhi, Delhi 110001</p>
         </div>
 
         <div className="col-lg-8 mt-3 mt-md-3 mt-lg-0">

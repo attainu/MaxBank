@@ -24,6 +24,7 @@ class UpdateContact extends React.Component {
       text: "Enter your 10 digit contact number",
       input: "text",
       showCancelButton: true,
+      cancelButtonColor: "#d33",
       inputValidator: (value) => {
         if (!value) {
           return "Enter your contact number!";
