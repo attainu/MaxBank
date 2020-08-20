@@ -33,11 +33,16 @@ class UpdateContact extends React.Component {
         } else if (value === this.props.customerData.contactNumber) {
           return "This number is already registered!";
         } else {
-          this.setState({ isLoading: true });
-          this.props.updateCustomerData(auth.currentUser.uid, {
-            contactNumber: value,
-          });
-          setTimeout(getUpdatedData, 1000);
+          const contact = Number(value);
+          if (isNaN(contact)) {
+            return "Enter your correct 10 digit contact number!";
+          } else {
+            this.setState({ isLoading: true });
+            this.props.updateCustomerData(auth.currentUser.uid, {
+              contactNumber: value,
+            });
+            setTimeout(getUpdatedData, 1000);
+          }
         }
       },
     });

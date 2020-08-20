@@ -40,9 +40,9 @@ class Login extends Component {
         <div className="container-fluid">
           <div className="row justify-content-center">
             <div className="col-md-10">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
+              <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                  <div className="input-group-text">
                     <i className="fas fa-envelope fa-lg"></i>
                   </div>
                 </div>
@@ -57,9 +57,9 @@ class Login extends Component {
                 />
               </div>
 
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
+              <div className="input-group">
+                <div className="input-group-prepend">
+                  <div className="input-group-text">
                     <i className="fas fa-key fa-lg"></i>
                   </div>
                 </div>
